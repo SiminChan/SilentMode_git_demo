@@ -1,0 +1,96 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 1-Jun-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+Params FuelPriceAmount // return to the GP params 
+
+//put 2000 into FuelPriceAmount
+
+set IsFuelPriceAmountNumber to true
+If FuelPriceAmount is not a number 
+	assert that IsFuelPriceAmountNumber  is false
+Else
+	assert that IsFuelPriceAmountNumber is true
+End If
+
+//click amount 
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+If ImageFound(text:"Amount", waitFor:15)
+	Click text:"Amount", waitFor:20
+end if
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+
+//Create property list to link the pic with num, KeyForValue function to return the key corresponding to a particular value in a property list.
+set myNum to {Num0:"0", Num1:"1", Num2:"2", Num3:"3", Num4:"4", Num5:"5", Num6:"6", Num7:"7", Num8:"8", Num9:"9"}
+
+//repeat to click each number using image comparison
+put FuelPriceAmount into FuelPriceAmountToLoop
+log FuelPriceAmountToLoop
+put length(FuelPriceAmountToLoop) into totLenght
+repeat with n=1 up to totLenght
+	put FuelPriceAmountToLoop Mod 10 into reminder
+	put FuelPriceAmountToLoop Div 10 into FuelPriceAmountToLoop
+	insert reminder into ListNum
+end repeat
+
+//reverse the list
+put the reverse of ListNum into ListNum
+
+//repeat each Amount in PriceAmount
+repeat with each amount in ListNum
+	put myNum.keyForValue(amount) into numPic
+	//log "PumpDashboard/"&numPic //TODO - delete
+	Tap imageName:"PumpDashboard/"&numPic, waitfor: 5
+end repeat
+
+wait 5 // lantency issue; need to wait few second to let the virtual screen to upload the number
+
+//Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+//check the Litre is display correctly on the screen
+//put ImageRectangle(text:"Litre", waitFor:15).topRight + [0, 0] into TL
+//put ImageRectangle(text:"Litre", waitFor:15).bottomRight + [1200, 200] into BR
+//log ReadText(TL,BR) //TODO - delete
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+if ImageFound(text:"Pump", waitFor:20)
+	put ImageRectangle(text:"Litre",contrast:"On", contrastColor:"#FFFFFF", contrastTolerance:"50",waitFor:15).topRight + [200, -220] into TL
+	put ImageRectangle(text:"Litre", contrast:"On", contrastColor:"#FFFFFF", contrastTolerance:"50",waitFor:15).topRight + [1200, 0] into BR
+	log ReadText(TL,BR)
+end if
+
+//if ImageFound(text:"Pump", waitFor:20)
+//	put ImageRectangle(text:"Litre",contrast:"On", contrastColor:"#EAEAEB", contrastTolerance:"20",waitFor:15).topRight + [0, -200] into TL
+//	put ImageRectangle(text:"Litre",contrast:"On", contrastColor:"#EAEAEB", contrastTolerance:"20",waitFor:15).topRight + [1200, 0] into BR
+//	log ReadText(TL,BR)
+//end if
+
+wait 3
+
+//two figre and three figure digit are different one has space another do not has 
+put ReadText(TL,BR) into ReadPrice
+log "Read Price: "&ReadPrice
+
+split ReadPrice by <character in "M m .">//RM 10.00 // RM15.00 
+log ReadPrice 
+//put the second item of ReadPrice into Ringgit
+//put the third item of ReadPrice into Cent
+put the third item of ReadPrIce into Ringgit
+put the fourth item of ReadPrice into Cent
+
+put Ringgit&Cent into Amount
+
+log "Amount: "&Amount
+
+if FuelPriceAmount = Amount
+	LogSuccess "Amount is displayed accordingly based on entered amount"
+else
+	LogError "Amount is not displayed accordingly based on entered amount"
+end if
+
+return Amount
+
+set the SearchRectangle to empty

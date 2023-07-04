@@ -1,0 +1,89 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 31-May-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+Params FuelPriceAmount, PumpNumber
+
+//put 5000 into FuelPriceAmount
+//put 11 into PumpNumber
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("LeftHalf")
+
+//verify the page is in selected Pump page
+put ImageFound(text:"Pump "&PumpNumber, waitFor:20) into isPumpNumberFound
+Assert that isPumpNumberFound is True
+
+//Click the amount button
+Click text:"Amount", waitFor:20
+
+//verity the amount is on the screen
+put ImageFound(text:"RM 5", waitFor:20) into IsRM5Found
+put ImageFound(text:"RM 10", waitFor:20) into IsRM10Found
+put ImageFound(text:"RM 20", waitFor:20) into IsRM20Found
+put ImageFound(text:"RM 50", waitFor:20) into IsRM50Found
+put ImageFound(text:"RM 100", waitFor:20) into IsRM100Found
+
+Assert that IsRM5Found is True
+Assert that IsRM10Found is True
+Assert that IsRM20Found is True
+Assert that IsRM50Found is True
+Assert that IsRM100Found is True
+
+put FuelPriceAmount Div 100 into PriceAmount
+put "RM "&PriceAmount into Amount
+Click text:Amount, waitFor:10
+
+wait 3 // lantency issue; need to wait few second to let the virtual screen to upload the number
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+//check the Litre is display correctly on the screen * Pump Test Layout
+if ImageFound(text:"Pump", waitFor:20)
+	put ImageRectangle(text:"Litre", waitFor:15).topRight + [0, -200] into TL
+	put ImageRectangle(text:"Litre", waitFor:15).topRight + [1200, 0] into BR
+	log ReadText(TL,BR)
+end if
+
+//check the Litre is display correctly on the screen * Pump Layout
+//if ImageFound(text:"Pump", waitFor:20)
+//	put ImageRectangle(text:"Litre", waitFor:15).topRight + [0, 0] into TL
+//	put ImageRectangle(text:"Litre", waitFor:15).bottomRight + [1200, 200] into BR
+//	log ReadText(TL,BR)
+//end if
+
+//TODO if amount is not 100 than it should not read a space in ringgit site
+put ReadText(TL,BR) into ReadAmount
+log ReadAmount
+
+if ReadAmount = "RM100.00"
+	split ReadAmount by <character in "M m .">
+	put the second item of ReadAmount into Ringgit
+	put the third item of ReadAmount into Cent
+	put Ringgit&Cent into readAmount
+else
+	split ReadAmount by <character in "M m .">
+	put the third item of ReadAmount into Ringgit
+	put the fourth item of ReadAmount into Cent
+	put Ringgit&Cent into readAmount
+end if
+
+log "Amount: "&readAmount
+
+//check the input value and the display value
+if FuelPriceAmount = readAmount
+	LogSuccess "Amount is displayed accordingly based on entered amount"
+else
+	LogError "Amount is not displayed accordingly based on entered amount"
+end if
+
+Set the SearchRectangle to empty
+
+log "Read Amount: "&readAmount
+
+Return readAmount
+
+
+
+

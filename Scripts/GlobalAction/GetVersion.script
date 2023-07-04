@@ -1,0 +1,30 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: Version
+//////////////////////////////////////
+
+//Get the version of the RONPOS 
+// the version sholud take the one at the previous builds row
+
+LaunchApp "com.apple.TestFlight"
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopLeftQuadrant")
+
+put ImageFound(text:"RONPOS", waitFor:10) into IsRONPOSFound
+Assert that IsRONPOSFound is True
+
+Click text:"RONPOS", waitFor:10
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("VerticalMiddle")
+
+put ImageRectangle(text:"Version", waitFor:15).topRight into TL
+put ImageRectangle(text:"Version", waitFor:15).bottomRight + [500, 0] into BR
+log "RONPOS Version: "&ReadText(TL,BR)
+
+TypeText homeButton, homeButton
+
+// waiting Eggplant support to reply the KillApp command not functuon issue
+//KillApp "com.apple.TestFlight"
+//KillApp "TestFlight"
+

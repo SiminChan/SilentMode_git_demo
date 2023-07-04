@@ -1,0 +1,17 @@
+﻿////////////////////////////////////////
+// Creator: farhan
+// Date: 10-May-2023
+// Module: EOD
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"MainPage/PowerIcon", waitFor:15
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+
+put ImageFound(text:"Enter your PIN", waitFor:15) into IsPINFound
+
+Assert that IsPINFound is true
+
+set the SearchRectangle to empty

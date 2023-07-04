@@ -1,0 +1,23 @@
+﻿//////////////////////////////////////
+// Creator: Farhan
+// Date: 11-May-2023
+// Module: Setting
+//////////////////////////////////////
+
+params pumpNumber
+
+//put 8 into pumpNumber //Dai bagi input object
+
+put ImageFound(text:"Pump Visibility", waitFor: 20) into IsPumpVisibilityFound
+Assert that IsPumpVisibilityFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("PumpVisibilityRec")
+
+//click pumpNumber
+Click text:pumpNumber
+
+//set GP_PumpVisibility to true
+
+//return GP_PumpVisibility
+
+Set the SearchRectangle to empty

@@ -1,0 +1,70 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 1-Jun-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+Params AP_FuelGrade
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("RightHalf")
+
+//put VP97 into AP_FuelGrade
+
+if AP_FuelGrade is equal to FS95
+	if ImageFound(text:"FS95", contrast:"On", contrastColor:"#FCE88B", contrastTolerance:"45", waitFor:15)
+		Click ImageLocation(text:"FS95", contrast:"On", contrastColor:"#FCE88B", contrastTolerance:"45", waitFor:15)
+		set FuelGradeFlag to True
+	else if ImageFound(text:"FS95", waitFor:15)
+		Click text:"FS95", waitFor:15
+		set FuelGradeFlag to True
+	end if
+	
+	Click text:"FS95", contrast:"On", contrastColor:"#FCE88B", contrastTolerance:"45", waitFor:15
+else if AP_FuelGrade is equal to VP97
+	if ImageFound(text:"VP97", contrast:"On", contrastColor:"#89C5A5", contrastTolerance:"45", waitFor:15)
+		Click ImageLocation(text:"VP97", contrast:"On", contrastColor:"#89C5A5", contrastTolerance:"45", waitFor:15)
+		set FuelGradeFlag to True
+	else if ImageFound(text:"VP97", waitFor:15)
+		Click text:"VP97", waitFor:15
+		set FuelGradeFlag to True
+	end if
+	
+else if AP_FuelGrade is equal to VPR
+	
+	if ImageFound(text:"VPR", contrast:"On", contrastColor:"#EC9295", contrastTolerance:"45", waitFor:15)
+		Click ImageLocation(text:"VPR", contrast:"On", contrastColor:"#EC9295", contrastTolerance:"45", waitFor:15)
+		set FuelGradeFlag to True
+	else if ImageFound(text:"VPR", waitFor:15)
+		Click text:"VPR", waitFor:15
+		set FuelGradeFlag to True
+	end if
+	
+else if AP_FuelGrade is equal to EU5
+	if ImageFound(text:"EU5", contrast:"On", contrastColor:"#878787", contrastTolerance:"45",waitFor:15)
+		Click ImageLocation(text:"EU5", contrast:"On", contrastColor:"#878787", contrastTolerance:"45",waitFor:15)
+		set FuelGradeFlag to True
+	else if ImageFound(text:"EU5", waitFor:15)
+		Click text:"EU5", waitFor:15
+		set FuelGradeFlag to True
+	end if
+	
+else if AP_FuelGrade is equal to DSL
+	if ImageFound(text:"DSL", contrast:"On", contrastColor:"#969595", contrastTolerance:"45", waitFor:15)
+		Click ImageLocation()
+		set FuelGradeFlag to True
+	else if ImageFound(text:"DSL", waitFor:15)
+		Click text:"DSL", waitFor:15
+		set FuelGradeFlag to True
+	end if
+else
+	set FuelGradeFlag to false
+end if
+
+if FuelGradeFlag is true
+	LogSuccess "Able to choose Fuel Grade"
+else
+	LogError "Fuel Grade Input Invalid"
+end if
+
+set the SearchRectangle to empty
+

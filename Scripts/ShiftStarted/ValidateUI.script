@@ -1,0 +1,38 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: ShiftStarted
+//////////////////////////////////////
+
+Params GP_IsShiftPause
+
+//put False into GP_IsShiftPause
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+Click text:"Cashier", waitFor:15
+
+put ImageFound(text:"Shift Started", waitFor:15) into IsShiftStartedTagFound
+assert that IsShiftStartedTagFound is true
+
+Set the SearchRectangle to empty
+
+//Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+//put ImageFound(ImageName:"ShiftStarted", waitFor:15) into IsShiftStartedTagFound
+//assert that IsShiftStartedTagFound is true
+
+
+//if GP_IsShiftPause = false
+//	put ImageFound(ImageName:"ShiftStarted", waitFor:15) into IsShiftStartedTagFound
+//	assert that IsShiftStartedTagFound is true
+//else
+//	put ImageFound(text:"CASHIER SESSION", waitFor:15) into IsCashierSessionTagFound
+//	assert that IsCashierSessionTagFound is True
+//end if
+
+
+
+
+
+

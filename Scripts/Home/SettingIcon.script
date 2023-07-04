@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 26-April-2023
+// Module: Setting
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"MainPage/SettingIcon", waitFor:15
+
+Set the SearchRectangle to empty
+
+
+
+

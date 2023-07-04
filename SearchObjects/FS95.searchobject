@@ -1,0 +1,53 @@
+{
+	"originalcapturelocation": [
+		1435,
+		51,
+		128,
+		71
+	],
+	"lastmodifieddate": 1679546286.5279999,
+	"createddate": 1679546277.5019999,
+	"name": "FS95",
+	"lastfounddate": 1679553255.9850001,
+	"ocrcapturestring": "FS95",
+	"lastfoundlocation": [
+		1435,
+		51,
+		128,
+		71
+	],
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[64,35]",
+					"Tolerance": "_72",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.2.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "DashboardIcons/FS95.png",
+				"connectionname": "POS A",
+				"type": 1,
+				"capturerect": [
+					1435,
+					51,
+					128,
+					71
+				],
+				"connectionserverid": "192.168.0.109",
+				"capturedocrtext": "FS95"
+			}
+	]
+}

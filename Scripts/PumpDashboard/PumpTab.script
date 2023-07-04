@@ -1,0 +1,23 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 30-March-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+put ImageFound(imageName:"PumpDashboard/Pump", waitFor:15) into isPumpFound
+Assert that isPumpFound is True
+
+put ImageFound(imageName:"PumpDashboard/Transaction", waitFor:15) into IsTransactionFound
+Assert that IsTransactionFound is True
+
+Click imageName:"PumpDashboard/Pump", waitFor:15
+
+if ImageFound(text:"Amount", waitFor:15) and ImageFound(text:"FUEL GRAD", waitFor:15)
+	LogSuccess "Pump Tab page is lauched"
+else
+	LogError "Pump Tab page is not lauched"
+end if
+
+Set the SearchRectangle to empty

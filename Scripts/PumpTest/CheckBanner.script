@@ -1,0 +1,13 @@
+﻿////////////////////////////////////////
+// Creator: Luwell
+// Date: 24-May-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+if imageFound (imageName: "PumpDashboard/Pump/Pump_blue", waitFor: 10)
+	LogSuccess "Pump Test page banner is blue color"
+else
+	Log "Pump Test page banner is not the right color"
+end if

@@ -1,0 +1,30 @@
+﻿////////////////////////////////////////
+// Creator: Farhan
+// Date: 29-May-2023
+// Module: Admin(Report)
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put ImageFound(text:"Sequence #", waitFor:10) into SequenceFound
+put ImageFound(text:"Cashier", waitFor:10) into CashierFound
+put ImageFound(text:"POS", waitFor:10) into POSFound
+put ImageFound(text:"Shift Start", waitFor:10) into ShiftStaredFound
+put ImageFound(text:"Adjusted At", waitFor:10) into AdjustedAtFound
+put ImageFound(text:"Amount Registered", waitFor:10) into AmountRegisteredFound
+put ImageFound(text:"Remarks", waitFor:10) into RemarksFound
+put ImageFound(imageName:"Printer/PrinterIcon2", waitFor:10) into PrinterFound
+
+
+
+assert that SequenceFound is true
+assert that CashierFound is true
+assert that POSFound is true
+assert that ShiftStaredFound is true
+assert that AdjustedAtFound is true
+assert that AmountRegisteredFound is true
+assert that RemarksFound is true
+assert that PrinterFound is true"CalendarIcon"
+
+
+Set the SearchRectangle to empty

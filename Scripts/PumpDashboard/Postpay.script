@@ -1,0 +1,29 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Params GP_SelectedPumpNumber
+
+//put 11 into GP_SelectedPumpNumber
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("RightHalf")
+
+Click text:"POSTPAY", waitFor:15
+
+if ImageFound(text:GP_SelectedPumpNumber, waitFor:15)
+	If ImageFound(text:"Postpay", waitFor:15)
+		LogSuccess "Postpay button able to click"
+	end if
+end if
+
+//wait until postpay dissapeat 
+//if ImageFound(imageName:"DashboardIcons/Pump"&GP_SelectedPumpNumber, waitFor:300)
+//	Log "Postpay disappear"
+//end if
+
+Set the SearchRectangle to empty
+
+
+

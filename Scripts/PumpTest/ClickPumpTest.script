@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: Luwell
+// Date: 24-May-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Tap text: "Pump Test"
+
+set the SearchRectangle to empty

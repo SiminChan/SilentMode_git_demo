@@ -1,0 +1,60 @@
+﻿params IsClockIn,ClockInTime,staffName
+
+if IsClockIn is true then
+	
+	set FirstCoordinate to ImageLocation(ImageName:"ClockInClockOut", SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:20))
+	
+	put (FirstCoordinate - [0,300]) into SecondCoordinate
+
+	--TODO: verify staff name
+	//set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Panel")
+	repeat until imagefound(text:staffName,waitFor:0,SearchRectangle:"Common/CustomRectangle".ScreenPart("Panel",waitFor:20))
+		
+		log "attempt to search staff name: " &repeatindex
+		put the repeatindex
+		
+		if the repeatindex = 5 then throw "Image not Found"
+		
+		Set the SwipeSpeed to 500
+		
+		SwipeUp [item 1 of SecondCoordinate, item 2 of SecondCoordinate]
+		
+		wait 5
+		
+	end repeat
+	
+	put ReadText(FoundImageLocation()) into theStaffName
+	log theStaffName
+	
+Else
+	set isStaffNameFound to true
+	
+	set FirstCoordinate to ImageLocation(ImageName:"ClockInClockOut", SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:20))
+	
+	put (FirstCoordinate - [0,300]) into SecondCoordinate
+
+	repeat until imagefound(text:staffName,waitFor:0,SearchRectangle:"Common/CustomRectangle".ScreenPart("Panel",waitFor:20))
+		
+		log "attempt to search staff name: " &repeatindex
+		put the repeatindex
+		
+		// repeatindex - 10
+		if the repeatindex = 5 then 
+			set isStaffNameFound to false
+			exit repeat
+		end if
+		
+		// swipespeed = 15
+		Set the SwipeSpeed to 500
+		
+		SwipeUp [item 1 of SecondCoordinate, item 2 of SecondCoordinate]
+		
+		wait 5
+		
+	end repeat
+	
+	assert that isStaffNameFound is false
+	
+End if
+
+Set the SearchRectangle to empty

@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomLeftQuadrant")
+
+Click text:"CHECKOUT", waitFor:15
+
+Set the SearchRectangle to empty

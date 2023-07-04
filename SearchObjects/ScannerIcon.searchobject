@@ -1,0 +1,53 @@
+{
+  "lastmodifieddate" : 1679545696.632,
+  "ocrcapturestring" : "□",
+  "testlocationdata" : [
+    {
+      "name" : "DashboardIcons\/ScannerIcon.png",
+      "sutinfo" : {
+        "device_os_version" : "iOS 15.7.1",
+        "os" : "OSX",
+        "device" : "iPad8,12",
+        "os_version" : "13.2.1",
+        "version" : "6.0",
+        "type" : "iOS Gateway",
+        "device_type" : "iPad Pro (12.9 inch) 4th Gen"
+      },
+      "connectionname" : "POS A",
+      "connectionportnum" : 5908,
+      "capturedocrtext" : "□",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Tolerant of Background",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_45",
+        "CropRectangle" : "[0,0,0,0]",
+        "HotSpot" : "[27,26]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.109",
+      "capturerect" : [
+        230,
+        1600,
+        46,
+        56
+      ]
+    }
+  ],
+  "createddate" : 1679545134.723,
+  "lastfoundlocation" : [
+    230,
+    1600,
+    46,
+    56
+  ],
+  "originalcapturelocation" : [
+    230,
+    1600,
+    46,
+    56
+  ],
+  "lastfounddate" : 1680074541.44347,
+  "name" : "ScannerIcon"
+}

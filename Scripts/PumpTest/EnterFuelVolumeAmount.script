@@ -1,0 +1,76 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 31-March-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+//IMPORTANTE
+//EGGPLANT CAN'T READ THE SPACE IN "5 L" SO IN THIS CASE WE WILL USE "5L" INSTEAD OF "5 L"
+
+Params FuelLitreAmount, PumpNumber
+
+//put 11 into PumpNumber
+//put 50 into FuelLitreAmount
+
+//verify the page is display with the correct pump number
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("LeftHalf")
+
+put ImageFound(text:"Pump "&PumpNumber, waitFor:15) into isPumpNumberFound
+Assert that isPumpNumberFound is True
+
+//make sure is on Litre tab
+Click text:"Litre", waitFor:15
+
+//verify Litre is displayed in the list of 5l, 10L, 20L, 50L, 100L
+put ImageFound(text:"5L", waitFor:15) into Is5LFound
+put ImageFound(text:"10 L", waitFor:15) into Is10LFound
+put ImageFound(text:"20 L", waitFor:15) into Is20LFound
+put ImageFound(text:"50 L", waitFor:15) into Is50LFound
+put ImageFound(text:"100 L", waitFor:15) into Is100LFound
+
+Assert that Is5LFound is True
+Assert that Is10LFound is True
+Assert that Is20LFound is True
+Assert that Is50LFound is True
+Assert that Is100LFound is True
+
+//click the input litre
+if FuelLitreAmount = 5
+	put FuelLitreAmount& "L" into Litre 
+Else
+	put FuelLitreAmount& " L" into Litre
+end if
+
+//click entry Litre
+Click text:Litre, waitFor:15
+
+wait 5 // to encounter the lagging issue
+
+//check the Litre is display correctly on the screen
+//if ImageFound(text:"Pump", waitFor:20)
+//	put ImageRectangle(text:"Litre", waitFor:15).topRight + [100, 0] into TL
+//	put ImageRectangle(text:"Litre", waitFor:15).bottomRight + [1200, 200] into BR
+//	log ReadText(TL,BR)
+//end if
+
+//check the Litre is display correctly on the screen * Pump Test Layout
+if ImageFound(text:"Pump", waitFor:20)
+	put ImageRectangle(text:"Litre", waitFor:15).topRight + [0, -200] into TL
+	put ImageRectangle(text:"Litre", waitFor:15).topRight + [1200, 0] into BR
+	log ReadText(TL,BR)
+end if
+
+put ReadText(TL,BR) into ReadLitre
+put ReadLitre split by "." into ReadLitre
+put the first item of ReadLitre into Litre
+Log Litre
+
+if FuelLitreAmount = Litre
+	LogSuccess "Litre is displayed accordingly based on entered Litre"
+Else
+	LogError "Litre is not displayed accordingly based on entered Litre"
+end if
+
+return Litre
+
+Set the SearchRectangle to empty

@@ -1,0 +1,53 @@
+{
+  "lastmodifieddate" : 1679475603.3369999,
+  "ocrcapturestring" : "Tab 3",
+  "testlocationdata" : [
+    {
+      "name" : "Item\/FirstMiloInTab3.png",
+      "sutinfo" : {
+        "device_os_version" : "iOS 15.7.1",
+        "os" : "OSX",
+        "device" : "iPad8,12",
+        "os_version" : "13.0.1",
+        "version" : "6.0",
+        "type" : "iOS Gateway",
+        "device_type" : "iPad Pro (12.9 inch) 4th Gen"
+      },
+      "connectionname" : "pos a",
+      "connectionportnum" : 5908,
+      "capturedocrtext" : "Tab 3",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Tolerant of Background",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_45",
+        "CropRectangle" : "[0,0,0,0]",
+        "HotSpot" : "[-585,154]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.227",
+      "capturerect" : [
+        1551,
+        1194,
+        145,
+        69
+      ]
+    }
+  ],
+  "createddate" : 1679475561.5640001,
+  "lastfoundlocation" : [
+    1549,
+    1186,
+    145,
+    69
+  ],
+  "originalcapturelocation" : [
+    1551,
+    1194,
+    145,
+    69
+  ],
+  "lastfounddate" : 1685336062.071806,
+  "name" : "FirstMiloInTab3"
+}

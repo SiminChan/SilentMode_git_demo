@@ -1,0 +1,21 @@
+﻿{
+    CaptureDate = "2023-04-26 05:19:07 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        "2732",
+        "2048");
+    CropRectangle = "32,16,108,122";
+    HasAlpha = 1;
+    HotSpotX = 71;
+    HotSpotY = 78;
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1492;
+    OriginalLocationY = 826;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "MainPage/RONPOSIcon";
+    tags = ();
+}

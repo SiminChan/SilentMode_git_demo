@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2023-04-10 07:57:12 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 43;
+    HotSpotY = 50;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1728;
+    OriginalLocationY = 1857;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "PumpDashboard/ResumeIcon";
+    tags = ();
+}

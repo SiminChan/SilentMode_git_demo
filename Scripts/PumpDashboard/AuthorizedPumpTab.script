@@ -1,0 +1,70 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Params GP_ClickHose
+
+//VerticalMiddle
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+
+If ImageFound(text:"Pump", waitFor:15)
+	Click text:"Pump", waitFor:15
+	
+	if GP_ClickHose is true
+		Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("HorizontalMiddle")
+		//POS Name
+		AbleToDisplay ("POS Name")
+		
+		//Fuel Grade
+		AbleToDisplay ("Fuel Grade")
+		
+		//Fuel Price
+		AbleToDisplay("Fuel Price")
+		
+		//Payment Type
+		AbleToDisplay ("Payment Type")
+		
+		//Authorisation Mode
+		AbleToDisplay ("Authorisation Mode")
+		
+		//Authorised Amount
+		AbleToDisplay ("Authorised Amount")
+		
+		//Filled Volume
+		AbleToDisplay ("Filled Volume")
+		
+		//Filled Amount
+		AbleToDisplay ("Filled Amount")
+		
+		//Fuel Progress
+		Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+		If ImageFound(text:"Progress", waitFor:15)
+			LogSuccess "POS able to display fuel progress"
+		else
+			LogError "POS not able to display fuel progress"
+		end if
+		
+		Set the SearchRectangle to empty
+	end if
+	
+else
+	LogError "Pump Tab not found"
+End If
+
+//handle to check the display is not empty
+to handle AbleToDisplay with DisplayName
+	put ImageRectangle(text:DisplayName, waitFor:15) into FilledAmountLocation
+	put FilledAmountLocation.bottomLeft + [-400,0] into TL
+	put FilledAmountLocation.bottomRight + [400, 150] into BR
+	put ReadText(TL,BR) into ReadDisplayName
+	log ReadDisplayName
+	if ReadDisplayName is not empty
+		LogSuccess "POS able to display "&DisplayName
+	else
+		LogError "POS not ableto display "&displayName
+	end if
+end AbleToDisplay
+
+

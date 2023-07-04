@@ -1,0 +1,56 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 11-May-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+//Get SUTName
+LaunchApp "Settings"
+
+//Make sure Settings app is launched and loaded correctly from IOT Gateway
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+if ImageFound(text:"Settings", waitFor:15) 
+	log "Settings launched"
+end if
+
+//Look and tap on "General" tab
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+WaitFor 15, text:"General"
+
+Repeat until ImageFound(text:"General", waitFor:1)
+	set the swipeSpeed to 80
+	SwipeDown the RemoteScreenSize times .1
+End Repeat
+wait 1.5
+click FoundImageLocation()
+
+//Click on "About", and read Name, IpadOS Version
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+if ImageFound(text:"About", waitFor:15)
+	Click text:"About", waitFor:15
+else
+	LogError "About button not found"
+end if
+Set the SearchRectangle to empty
+
+put GetParamInfo("iPadOS Version") into IOSVersion
+put GetParamInfo("Name") into SUTName
+log "SUT Name: " & SUTName
+log "IOS Version: " & IOSVersion
+
+KillApp "Settings"
+
+return SUTName
+
+//get the information from the info name given
+function GetParamInfo InfoName
+	wait 1.5
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+	put ImageRectangle(text:InfoName, waitFor:15).TopRight into TL
+	put ImageRectangle(text:InfoName, waitFor:15).BottomRight + [2000, 30] into BR
+	put ReadText(TL, BR) split by " >" into readout
+	Set the SearchRectangle to empty
+	return item 1 of readout
+end GetParamInfo
+
+

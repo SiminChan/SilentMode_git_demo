@@ -1,0 +1,92 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 2-May-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+//setup the hub ip only ->checking need to go to Device Code save button check
+//port 3000 or empty is default
+
+Params IPAddress
+
+//put "Correct" into IPAddress// TODO- delete in future; for testing purpose
+
+KeyInIPAddress IPAddress
+
+SetupPort
+
+to handle KeyInIPAddress with IPAddress
+	//ip address: Remote, Correct , Incorrect
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+	put EveryImageLocation("Setup/dot") into dots // +100
+	
+	if IPAddress is "Remote" then
+		put [0,0,0,0] into IPAddressList
+	else if IPAddress is "Correct" then
+		put [192,168,1,8] into IPAddressList
+	else if IPAddress is "Incorrect" then
+		put [192,168,10,10] into IPAddressList
+	else
+		LogError "Invalid Setup IP Address" // remote
+	end if
+	
+	put 1 into int_i
+	repeat each item in IPAddressList // 4 values
+		//dots -> 3 values 
+		if counter() is not greater than 1
+			log item int_i of dots
+			put item int_i of dots into dot
+			Click dot +[-100,0]
+			KeyInCodeKeyPad it
+			//log "first click"
+			//wait 3
+			else
+			log item int_i of dots
+			put item int_i of dots into dot
+			Click dot +[100,0]
+			KeyInCodeKeyPad it
+			put int_i + 1 into int_i
+			//wait 3
+		end if
+	end repeat
+end KeyInIPAddress
+
+to handle SetupPort 
+	//read port number
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+	//put ImageLocation(text:"Setup Port") into SetupPortRect
+	put ImageRectangle(text:"Setup Port", waitFor:15) into SetupPortRect
+	put SetupPortRect.bottomLeft +[50,10] into TL
+	put SetupPortRect.bottomRight +[300, 200] into BR
+	log ReadText(TL,BR)
+	put ReadText(TL,BR) into SetupPort
+	if SetupPort is not equal to 3000 then
+		Click ImageLocation(text:"Setup Port") +[0,50]
+		KeyInCodeKeyPad "3000"
+	end if
+end SetupPort
+
+//This is not stable when use it to keyin single number or alphabet
+//*we dont use this handle antmore we use KeyInCodeKeyPad" 
+to handle KeyInCode with Code, CustomRect
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart(CustomRect)
+	Click imageName:"Setup/DustbinIcon", waitFor:15
+	repeat each character of Code
+		Click text: it, waitFor:30, contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"45"
+	end repeat
+	set the SearchRectangle to empty
+end KeyInCode
+
+to handle KeyInCodeKeyPad with Code
+	set myKeyPad to {AlphabetQ:"Q",AlphabetW:"W",AlphabetE:"E",AlphabetR:"R",AlphabetT:"T",AlphabetY:"Y",AlphabetU:"U",AlphabetI:"I",AlphabetO:"O",AlphabetP:"P",AlphabetA:"A",AlphabetS:"S",AlphabetD:"D",AlphabetF:"F",AlphabetG:"G",AlphabetH:"H",AlphabetJ:"J",AlphabetK:"K",AlphabetL:"L",AlphabetZ:"Z",AlphabetX:"X",AlphabetC:"C",AlphabetV:"V",AlphabetB:"B",AlphabetN:"N",AlphabetM:"M",Num0:"0", Num1:"1", Num2:"2", Num3:"3", Num4:"4", Num5:"5", Num6:"6", Num7:"7", Num8:"8", Num9:"9"}
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+	Click imageName:"Setup/DustbinIcon", waitFor:15
+	repeat each character in Code
+		put myKeyPad.keyForValue(it) into keyPadNum
+		Click imageName:"BuildInKeyboard/"&keyPadNum, waitFor:15
+	end repeat
+end KeyInCodeKeyPad
+
+
+
+

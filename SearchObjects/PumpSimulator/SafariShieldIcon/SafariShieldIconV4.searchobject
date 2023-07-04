@@ -1,0 +1,47 @@
+{
+  "lastmodifieddate" : 1682576986.5424161,
+  "ocrcapturestring" : "c",
+  "testlocationdata" : [
+    {
+      "name" : "PumpSimulator\/SafariShieldIcon\/SafariShieldIconV4.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "capturedocrtext" : "c",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Precise to Pixel",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_1",
+        "HotSpot" : "[9,18]",
+        "CropRectangle" : "[0,0,0,0]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.36",
+      "capturerect" : [
+        625,
+        76,
+        20,
+        22
+      ]
+    }
+  ],
+  "createddate" : 1682576964.238775,
+  "lastfoundlocation" : [
+    625,
+    76,
+    20,
+    22
+  ],
+  "originalcapturelocation" : [
+    625,
+    76,
+    20,
+    22
+  ],
+  "lastfounddate" : 1682578709.6417389,
+  "name" : "PumpSimulator\/SafariShieldIcon\/SafariShieldIconV4"
+}

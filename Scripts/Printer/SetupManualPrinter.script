@@ -1,0 +1,64 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-May-2023
+// Module: Printer
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+Log EveryImageLocation("Printer/PrinterIcon")
+put EveryImageLocation("Printer/PrinterIcon") into PrinterList
+put the number of items of PrinterList into PrinterNumBef
+Log "Pritner Before Added: "& PrinterNumBef
+
+//IPAddress for printer
+put [192,168,1,112] into PrinterList
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+put EveryImageLocation("Setup/dot") into dots // +100
+
+put 1 into int_i
+repeat each item in PrinterList // 4 values
+	//dots -> 3 values 
+	if counter() is not greater than 1
+		log item int_i of dots
+		put item int_i of dots into dot
+		Click dot +[-100,0]
+		KeyInCode it, "BottomRightQuadrant"
+		//log "first click"
+		//wait 3
+	else
+		log item int_i of dots
+		put item int_i of dots into dot
+		Click dot +[100,0]
+		KeyInCode it, "BottomRightQuadrant"
+		put int_i + 1 into int_i
+		//wait 3
+	end if
+end repeat
+
+run "Printer/Add"
+
+Click imageName:"Printer/KeyboardIcon", waitFor:15
+
+put EveryImageLocation("Printer/PrinterIcon") into PrinterList
+put the number of items in PrinterList into PrinterNumAft
+log "Printer After Added: "&PrinterNumAft
+
+put PrinterNumAft minus PrinterNumBef into PrinterDiff
+log PrinterDiff
+
+if PrinterDiff is not less than 1
+	LogSuccess "Printer is added manually successfully"
+else
+	LogError "Printer is not added"
+end if
+
+to handle KeyInCode with Code, CustomRect
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart(CustomRect)
+	Click imageName:"Setup/DustbinIcon", waitFor:15
+	repeat each character of Code
+		Click text: it, waitFor:15, contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"45"
+	end repeat
+	set the SearchRectangle to empty
+end KeyInCode

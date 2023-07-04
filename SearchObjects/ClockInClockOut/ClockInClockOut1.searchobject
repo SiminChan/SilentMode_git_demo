@@ -1,0 +1,53 @@
+{
+	"originalcapturelocation": [
+		2029,
+		1854,
+		368,
+		60
+	],
+	"lastmodifieddate": 1679276408.4590001,
+	"createddate": 1679276408.4590001,
+	"name": "ClockInClockOut/ClockInClockOut1",
+	"lastfounddate": 1684124689.97,
+	"ocrcapturestring": "Clock In / Clock Out",
+	"lastfoundlocation": [
+		2029,
+		1854,
+		368,
+		60
+	],
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[184,30]",
+					"Tolerance": "_49",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "ClockInClockOut/ClockInClockOut1.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					2029,
+					1854,
+					368,
+					60
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "Clock In / Clock Out"
+			}
+	]
+}

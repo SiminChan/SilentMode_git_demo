@@ -1,0 +1,31 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 5-April-2023
+// Module: Initial
+//////////////////////////////////////
+//Params userName
+
+//put "Auto User 1" into userName
+
+Function PinForUser userName
+	//set username and password
+	set userPin to {"5443":"Invalid User", "8080":"Auto User 1", "7070":"Auto User 2", "9090":"Auto User 3", "Admin":"9630"}
+	put userPin.keyForValue(userName) into pins
+	log pins
+	
+	return pins
+End pinForUser
+
+
+
+
+
+
+
+
+
+
+
+
+
+

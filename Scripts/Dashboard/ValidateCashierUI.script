@@ -1,0 +1,32 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-March-2023
+// Module: Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomRightQuadrant")
+
+if ImageFound(imageName:"DashboardIcons/CloseKeyboardV2", waitFor:15)
+	Click imageName:"GoToDashboard/CloseKeyboardV2", waitFor:15
+end if
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+if ImageFound(imageName:"DashboardIcons/CloseReceiptIcon", waitFor:15)
+	Click imageName:"DashboardIcons/CloseReceiptIcon", waitFor:15
+end if
+
+put ImageFound(text:"FS95", waitFor:20) into IsFS95Found
+put ImageFound(text:"VP97", waitFor: 20) into IsVP97Found
+put ImageFound(text:"EU5", waitFor:20) into IsEU5Found
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomHalf")
+
+put ImageFound(text:"CHECKOUT", waitFor:20) into IsCheckoutFound
+
+Set the SearchRectangle to empty
+
+Assert that IsFS95Found is True
+Assert that IsVP97Found is True
+Assert that IsEU5Found is True
+Assert that IsCheckoutFound is True

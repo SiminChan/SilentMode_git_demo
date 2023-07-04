@@ -1,0 +1,53 @@
+{
+  "lastmodifieddate" : 1679557497.339,
+  "ocrcapturestring" : "Total",
+  "testlocationdata" : [
+    {
+      "name" : "Total.png",
+      "sutinfo" : {
+        "device_os_version" : "iOS 15.7.1",
+        "os" : "OSX",
+        "device" : "iPad8,12",
+        "os_version" : "13.2.1",
+        "version" : "6.0",
+        "type" : "iOS Gateway",
+        "device_type" : "iPad Pro (12.9 inch) 4th Gen"
+      },
+      "connectionname" : "POS A",
+      "connectionportnum" : 5908,
+      "capturedocrtext" : "Total",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_73",
+        "CropRectangle" : "[0,0,0,0]",
+        "HotSpot" : "[52,32]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.109",
+      "capturerect" : [
+        30,
+        1333,
+        104,
+        64
+      ]
+    }
+  ],
+  "createddate" : 1679557497.339,
+  "lastfoundlocation" : [
+    30,
+    1433,
+    104,
+    64
+  ],
+  "originalcapturelocation" : [
+    30,
+    1333,
+    104,
+    64
+  ],
+  "lastfounddate" : 1685512131.9266839,
+  "name" : "Total"
+}

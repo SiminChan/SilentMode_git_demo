@@ -1,0 +1,20 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-March-2023
+// Module: Open Cashier - Update AmountIn
+//////////////////////////////////////
+
+
+//Get the Amount from the status and return to the GP_AmountIn Input Status Amount; Output GP_AmountIn
+params Amount
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+set HomePageIsLoaded to true
+If ImageFound(imageName:"GoToDashboard", waitFor:5)
+	assert that HomePageIsLoaded is true
+	return Amount
+Else
+	assert that HomePageisNotLoaded is false
+End If
+
+Set the SearchRectangle to empty
+//return all the params 

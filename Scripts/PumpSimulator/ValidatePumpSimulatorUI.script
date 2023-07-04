@@ -1,0 +1,45 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Simulator
+//////////////////////////////////////
+
+Disconnect "POS"
+
+//TypeText commandKey,controlKey,q
+
+//Disconnect "pump"
+
+wait 5 // hard wait 20s so that the mac mini would not gtuck at the login page
+//5 second is good enough. the whole flow to connect back the to pump simulator will take more than 20s
+
+//Connect to the Mac mini
+Connect "pump"
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Center")
+
+//verify the UI
+repeat 2 times
+	if ImageFound(text:"Eggplant Functional", waitFor:10)
+		LogSuccess "Connected to Pump Simulator Machine"
+		//Enter Password -> nter Password
+		if ImageFound(text:"nter Password", contrast:"On", contrastColor:"#985253", contrastTolerance:"45", waitFor:20,textDifference:2)
+			Click ImageLocation(text:"nter Password", contrast:"On", contrastColor:"#985253", contrastTolerance:"45", waitFor:20,textDifference:2)
+		else if ImageFound(text:"nter Password", waitFor:15, contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"84",textDifference:2)
+			Click ImageLocation(text:"nter Password", waitFor:15, contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"84",textDifference:2)
+		end if
+		//Click text:"nter Password", waitFor:15, contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"84",textDifference:2
+		TypeHiddenText "...."
+		TypeText Enter
+		wait 2
+	else
+		exit repeat
+		LogError "Fail to connect to Pump Simulator Machine"
+	end if
+end repeat
+
+set the SearchRectangle to empty
+
+//wait 10
+
+//Disconnect "pump" // wait until the screen go to power saving mode

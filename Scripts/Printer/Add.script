@@ -1,0 +1,22 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-May-2023
+// Module: Printer
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+
+Click text:"Add", contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"45", waitFor:15
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Center")
+//Center
+if ImageFound(text:"Printer Incomplete Address", waitFor:10)
+	
+	Click ImageLocation(text:"Printer Incomplete Address") + [0, 500] 
+	LogError "Printer Incomplete Address"
+else
+	LogSuccess "Printer Added Successfully"
+end if
+
+set the SearchRectangle to empty
+

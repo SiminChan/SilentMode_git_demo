@@ -1,0 +1,13 @@
+﻿params staffName
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant",waitFor:3)
+
+put ImageFound("StaffImage") into isStaffImageFound
+
+put ImageFound(text:staffName) into isStaffNameFound
+
+Assert that isStaffImageFound is false
+
+Assert that isStaffNameFound is false
+
+set the SearchRectangle to empty

@@ -1,0 +1,14 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 1-Jun-2023
+// Module: Common
+//////////////////////////////////////
+
+//return GP_ProfileID
+params ProfileID
+
+put ProfileID into GP_ProfileID
+
+log "Global Profile: "&GP_ProfileID
+
+return GP_ProfileID

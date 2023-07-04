@@ -1,0 +1,3 @@
+﻿set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+Tap text:"Proceed", waitFor:5
+set the SearchRectangle to empty 

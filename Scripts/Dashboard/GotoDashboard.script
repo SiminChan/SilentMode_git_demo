@@ -1,0 +1,14 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-March-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant",WaitFor:3)
+
+Click imageName:"GoToDashboard", WaitFor: 15
+
+
+
+
+

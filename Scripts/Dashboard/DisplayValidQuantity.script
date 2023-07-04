@@ -1,0 +1,38 @@
+﻿Repeat until ImageFound(ImageName:"Item/ItemQuantity/ItemQuantityX3",SearchRectangle:[[634,280],[689,322]],waitfor:3)
+	Click ImageName:"Item/FirstMiloInTab3"
+end repeat
+
+Put FoundImageLocation() into isQuantityFound
+Put ImageLocation(ImageName:"Item/ItemQuantity/ItemQuantityX3",SearchRectangle:[[634,280],[689,322]], waitfor:3) into isQuantity3
+
+If isQuantityFound is isQuantity3
+	Click isQuantityFound
+End If
+
+if ImageFound(ImageName:"Item/ItemQuantity/ItemQuantityX3", SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomHalf"),WaitFor:5)
+	Put FoundImageLocation() into isNewQuantityFound
+	Put ImageLocation(ImageName:"Item/ItemQuantity/ItemQuantityX3", waitfor:3) into isQuantity3
+	if isNewQuantityFound is isQuantity3
+		Assert that isNewQuantityFound is isQuantity3
+		Click ImageName:"Item/SelectQuantity"
+	end if
+end if
+
+
+Repeat until ImageFound(ImageName:"Item/ItemQuantity4",SearchRectangle:[[509,1463],[783,1570]],waitfor:3)
+	
+	Click ImageName:"Item/IncreaseItemQuantity"
+	
+End repeat
+
+Put FoundImageLocation() into isLatestQuantityFound
+Put ImageLocation(ImageName:"Item/ItemQuantity4") into isQuantity4
+
+If isLatestQuantityFound is isQuantity4
+	Assert that isLatestQuantityFound is isQuantity4
+	Click "Item/OKButton"
+	
+End If
+
+
+Set the SearchRectangle to empty

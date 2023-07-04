@@ -1,0 +1,13 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 11-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+
+Click text:"RESUME", waitFor:15
+
+Set the SearchRectangle to empty
+
+

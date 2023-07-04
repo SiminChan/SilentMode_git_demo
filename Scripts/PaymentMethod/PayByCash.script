@@ -1,0 +1,29 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Payment Mehod
+//////////////////////////////////////
+
+Params PayMethod
+
+//put Cash into PayMethod
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("RightHalf")
+
+put ImageFound(text:"Cash", waitFor:15) into IsCashFound
+put ImageFound(text:"IPT", waitFor:15) into IsIPTFound
+put ImageFound(text:"eWallet", waitFor:15) into IseWalletFound
+
+assert that IsCashFound is true
+assert that IsIPTFound is true
+assert that IseWalletFound is true
+
+Click text:PayMethod, waitFor:10
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Center")
+
+If ImageFound(text:"Printer Not Set", waitFor:15)
+	Click (ImageLocation(text:"Printer Not Set") + [0, -500])
+End If
+
+Set the SearchRectangle to empty

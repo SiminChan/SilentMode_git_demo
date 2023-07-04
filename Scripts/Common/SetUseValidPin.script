@@ -1,0 +1,18 @@
+﻿params profileID
+
+if profileID is 0
+	return false //return invalid profile
+else if profileID is 1
+	return true //return Auto User 1 profile pin
+else if profileID is 2
+	return true //return Auto User 2 profile pin
+else if profileID is 3
+	return true // return Auto User 3 profile pin
+else if profileID is 100
+	return true //return supervisor profile pin
+else
+	throw "Invalid profile ID: " & profileID
+end if
+
+//params input
+//return input

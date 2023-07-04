@@ -1,0 +1,21 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-March-2023
+// Module: Open Cashier - Update Status Shift Start
+//////////////////////////////////////
+
+//GP_ShiftStart = ShiftStart
+params ShiftStart
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+Set HomePageIsLoaded to true
+
+If ImageFound(imageName:"GoToDashboard", waitFor:5)
+	assert that HomePageIsLoaded is true
+	set ShiftStart to True
+	return ShiftStart
+Else
+	assert that HomePageisNotLoaded is false
+End If
+
+Set the SearchRectangle to empty

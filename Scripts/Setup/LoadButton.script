@@ -1,0 +1,29 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+
+if ImageFound(imageName:"Setup/100%Image", waitFor:10)
+	Log "Data is 100% loaded."
+else
+	Log "Loading data..."
+	put EveryImageLocation(text:"Load") into LoadText
+	click the second item of LoadText
+	if ImageFound(imageName:"Setup/100%Image", waitFor:25)
+		LogSuccess "Data is 100% loaded"
+	else
+		LogError "Data is not loaded"
+	end if
+end if
+
+set the SearchRectangle to empty
+
+
+
+//put ImageFound(imageName:"Setup/100%Image", waitFor:25) into IsLoad100PercenFound
+//put ImageFound(text:"100%", waitFor:25) into IsLoad100PercenFound
+//assert that IsLoad100PercenFound is true
+

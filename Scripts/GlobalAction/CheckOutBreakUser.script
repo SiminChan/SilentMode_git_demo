@@ -1,0 +1,64 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-May-2023
+// Module: OpenApp
+//////////////////////////////////////
+
+//Clock out Break User
+Params SUTName
+
+//put "Eggplant POS A" into SUTName
+
+put "Common/ChoosePinProfile_V3" (2, SUTName) into UserPassword
+
+log UserPassword
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+Click text:"Cashier", waitFor:15
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+Click text:"CASHIER SESSION", waitFor:15
+
+set the SearchRectangle to "Common/CustomRectangle".Screenpart("Middle")
+
+If ImageFound(text:"Enter your PIN", waitFor:15) then enterPin UserPassword
+
+set the SearchRectangle to "Common/CustomRectangle".Screenpart("Middle")
+
+Click text:"Close Cashier", waitFor:15
+
+If ImageFound(text:"Enter your PIN", waitFor:15) then enterPin UserPassword
+
+set the SearchRectangle to "Common/CustomRectangle".Screenpart("Bottomhalf")
+
+Click text:"Proceed", waitFor:15
+
+set the SearchRectangle to empty
+
+//To handle enter pin 
+To Handle enterPin pins
+	if ImageFound(text:"Enter your PIN", waitFor:10)
+		repeat with n = 1 up to length(pins)
+			put pins Mod 10 into pin
+			put pins Div 10 into pins
+			insert pin into pinList
+		end repeat
+		//reverse the pinList
+		put the reverse of pinList into pinList
+		
+		log "Pin# is: "&pinList
+		split pins by ","
+		repeat with each pin in pinList
+			Click text:pin, waitFor:10
+			wait 1
+		end repeat
+	end if
+End enterPin
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+﻿params isShiftStart, isShiftPause
+
+if isShiftStart is true AND isShiftPause is false
+	return true
+else
+	return false
+end if

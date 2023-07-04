@@ -1,0 +1,14 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+Click text:"Device Code", waitFor:15
+set the SearchRectangle to empty
+
+//able to display Enter Device Code
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+put ImageFound(text:"nter Device Code", waitFor:15) into IsEnterDeviceCode
+assert that IsEnterDeviceCode is true

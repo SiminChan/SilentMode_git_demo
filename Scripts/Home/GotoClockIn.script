@@ -1,0 +1,6 @@
+﻿set mouseClickDelay to 0.5
+//set remoteWorkInterval to 5
+
+Click ImageLocation("ClockInClockOut")
+
+

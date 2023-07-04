@@ -1,0 +1,11 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomLeftPanel")
+
+Put imageRectangle(ImageName:"Total") into ItemTotal
+Set imageTop = top(ItemTotal)
+Set imageRight = right(ItemTotal)
+add [600,0,650,0] to ItemTotal
+Put ReadText(ItemTotal) into ItemTotalAmount
+
+Put "2.00" into isTotalAmountFound
+
+Assert that ItemTotalAmount is isTotalAmountFound

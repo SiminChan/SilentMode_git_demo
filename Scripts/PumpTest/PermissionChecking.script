@@ -1,0 +1,38 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 1-JUN-2023
+// Module: Pump Test 
+//////////////////////////////////////
+
+Params GP_ProfileID
+
+if GP_ProfileID is equal to 0
+	if ImageFound(text:"Staff Pin Invalid", waitFor:20)
+		LogSuccess "Invalid PIN message appear"
+	end if
+else if GP_ProfileID is equal to 1
+	LogSuccess "Login Successfully"
+else if GP_ProfileID is equal to 2
+	if ImageFound(text:"No Permission", waitFor:20)
+		LogSuccess "No Permission message appear"
+	end if
+else if GP_ProfileID is equal to 3
+	if ImageFound(text:"No Permission", waitFor:20)
+		LogSuccess "No Permission message appear"
+	end if	
+else
+	LogError "Invalid Prodile ID"
+end if
+
+
+
+//input profileID 
+//if equal to 0
+//check image show on screen
+//log wrong password
+//else if equal to 3
+//check imageshow on screen
+//log not permission
+//else no permission
+//else logerror
+

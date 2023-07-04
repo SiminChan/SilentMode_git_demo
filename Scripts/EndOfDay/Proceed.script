@@ -1,0 +1,22 @@
+﻿////////////////////////////////////////
+// Creator: farhan
+// Date: 10-May-2023
+// Module: EndOfDay
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+
+put ImageFound(text:"Issue End of Day", waitFor:30) into IsTextFound
+
+Assert that IsTextFound is true
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click text:"Proceed", waitFor:15
+
+
+//Click imageName:"MainPage/CashierPage/ProceedEOD", waitFor:15
+
+set the SearchRectangle to empty
+
+Click text:"End Of Day Completed!", waitFor:15

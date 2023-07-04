@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2023-04-04 08:27:30 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 47;
+    HotSpotY = 40;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 2614;
+    OriginalLocationY = 1914;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "GoToDashboard/CloseKeyboard/CloseKeyboardV2";
+    tags = ();
+}

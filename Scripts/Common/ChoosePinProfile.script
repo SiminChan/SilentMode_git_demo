@@ -1,0 +1,26 @@
+﻿params profileID
+
+if profileID is 0
+	return "1 3 2 0" //return invalid profile
+else if profileID is 1
+	return "8 0 8 0" //return Auto User 1 profile
+else if profileID is 2
+	return "7 0 7 0" //TODO: return Auto User 2 profile pin
+else if profileID is 3
+	return "9 0 9 0" //TODO: return Auto User 3 profile pin
+else if profileID is 100
+	return "9 6 3 0" //TODO: return supervisor profile pin
+else
+	throw "Invalid profile ID: " & profileID
+end if
+
+-- obsoleted
+//params useValidPin
+//set ret to []
+//if useValidPin is true
+//	set ret to "9 0 9 0" --TODO: assign valid pin number
+//else
+//	set ret to "1 3 2 0" -- TODO: assgin invalid pin number
+//end if
+//
+//return ret

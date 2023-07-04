@@ -1,0 +1,47 @@
+{
+  "lastmodifieddate" : 1681892904.3534179,
+  "ocrcapturestring" : "|Consde\t-",
+  "testlocationdata" : [
+    {
+      "name" : "PumpSimulator\/ITLLogo\/ITLLogoV3.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "capturedocrtext" : "|Consde\t-",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_73",
+        "HotSpot" : "[48,23]",
+        "CropRectangle" : "[0,0,0,0]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.9",
+      "capturerect" : [
+        207,
+        470,
+        97,
+        47
+      ]
+    }
+  ],
+  "createddate" : 1681799537.7171578,
+  "lastfoundlocation" : [
+    1112,
+    504,
+    97,
+    47
+  ],
+  "originalcapturelocation" : [
+    207,
+    470,
+    97,
+    47
+  ],
+  "lastfounddate" : 1682578715.4612629,
+  "name" : "PumpSimulator\/ITLLogo\/ITLLogoV3"
+}

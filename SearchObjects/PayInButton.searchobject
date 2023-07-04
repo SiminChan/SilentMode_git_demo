@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1679297862.0770001,
+	"ocrcapturestring": "Pay In",
+	"originalcapturelocation": [
+		817,
+		1290,
+		160,
+		47
+	],
+	"createddate": 1679297805.223,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[80,23]",
+					"Tolerance": "_71",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "FiveShiftRelatedButton/PayInButton.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					817,
+					1290,
+					160,
+					47
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "Pay In"
+			}
+	],
+	"name": "PayInButton"
+}

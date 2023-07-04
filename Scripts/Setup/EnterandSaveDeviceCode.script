@@ -1,0 +1,142 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+Params DeviceCode //Correct, Incorrect, Used
+
+//put Correct into DeviceCode
+
+WaitFor 15, text:"Enter Device Code"
+
+put ReadDeviceCode("ter Device Code") into InitialDeviceCode
+log "function output: "&InitialDeviceCode
+
+//creating a flag to check whether current IP is wrong or correct
+set IPFlag to true
+
+//put "Correct" into DeviceCode
+
+//Keyin Device Code
+if DeviceCode is "Incorrect"
+	KeyInDeviceCodeKeyPad "GG12TY5N"
+	PressSave "Incorrect", IPFlag
+else if DeviceCode is "Correct"
+	KeyInDeviceCodeKeyPad InitialDeviceCode
+	put PressSave ("Correct", IPFlag) into IPFlag // put the return value to IPFlag --------------------------------------------TODO
+	log "IPFlag: "&IPFlag
+	
+else if DeviceCode is "Used" //This USED device code is bahaviour is wrong, the first user with the DEVICE CODE will kicked out by the system; the correct way is not let the seconf user to load the USED Device Code
+	KeyInDeviceCodeKeyPad "WGHJV4YX"
+	PressSave "Used", IPFlag
+else
+	// need to check with Hadi
+	//  KeyInDeviceCode "USED DEVICE CODE"
+	//PressSave "Used"
+end if
+
+//set the Device Code back to the initial code
+//if DeviceCode is not equal to "Correct" then KeyInDeviceCode InitialDeviceCode
+//PressSave "Correct"
+if DeviceCode is not equal to "Correct" then
+	KeyInDeviceCodeKeyPad InitialDeviceCode
+	PressSave "Correct", IPFlag
+	Log "Change Back to Correct Device Code"
+end if
+
+//Change the IP back to correct IP if the IP is wrong
+if IPFlag is not true
+	"Setup/HubIPAddress".ClickHubIPAddress
+	"Setup/SetupIPAddressAndPort".KeyInIPAddress["Correct"]
+	"Setup/SetupIPAddressAndPort".SetupPort
+	"Setup/SaveHubIPAddress".ClickSaveHubIpAddress
+	Log "IP Address is change to correct IP address"
+end if
+
+//If IP Address type is Incorrect then 
+to handle PressSave with DeviceCodeOption, IPFlag
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+	Click text:"Save", waitFor:15
+	If DeviceCodeOption is equal "Incorrect" then
+		set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+		If ImageFound(text:"Invalid Device Code", waitFor:30) then
+			LogSuccess "Invalid Pop Up appeared"
+		Else
+			LogError "Invalid Pop Up doesn't appeared"
+		End if
+		Click ImageLocation(text:"Invalid Device Code")+[0,-350]
+
+	Else if DeviceCodeOption is equal to "Correct"
+		
+		set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+		If ImageFound(imageName:"Setup/100%Image", waitFor:40)
+			LogSuccess "Successfully load all the data"
+		Else If ImageFound(text:"POS Internal Error", waitFor:15, SearchRectangle:"Common/CustomRectangle".ScreenPart("Middle")) 
+			
+			//Click ImageLocation(text:"Request Time Out") + [0,-500]
+			Click ImageLocation(text:"POS Internal Error", waitFor:15, SearchRectangle:"Common/CustomRectangle".ScreenPart("Middle")) + [0, -500]
+			put false into IPFlag
+			LogSuccess "IP Address is not correct"
+			
+		Else If ImageFound(text:"Request Time Out", waitFor:15, SearchRectangle:"Common/CustomRectangle".ScreenPart("Middle")) 
+			//Click ImageLocation(text:"Request Time Out") + [0,-500]
+			Click ImageLocation(text:"Request Time Out", waitFor:15, SearchRectangle:"Common/CustomRectangle".ScreenPart("Middle")) + [0, -500]
+			put false into IPFlag
+			LogSuccess "IP Address is not correct"
+			
+		Else
+			
+			LogError "POS Internal Error & Requst Time Out Pop Up Not Found"
+		End If
+		
+	Else
+		
+		LogError "Load data failed"
+	End if
+	// do nothing first, currently USED DEVICE CODE doesn't has any pop up yet
+	
+	set the SearchRectangle to empty
+	
+	return IPFlag
+	
+end PressSave
+
+to handle ReadDeviceCode with InitialTextPosition
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+	Put ImageRectangle(text:InitialTextPosition, waitFor:15) into DeviceCodeRect
+	put DeviceCodeRect.bottomLeft into TL
+	put DeviceCodeRect.bottomRight +[700, 200] into BR
+	//log ReadText(TL, BR)
+	put ReadText(TL, BR) into ReadDeviceCode
+	return ReadDeviceCode
+end ReadDeviceCode
+
+//OCR is not stable when use it to find single number and alphabet
+//**Use KeyinDeviceCodePad --
+to handle KeyInDeviceCode with DeviceCode
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+	Click imageName:"Setup/DustbinIcon", waitFor:15
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BuildInkeyboardQuadrant")
+	repeat each character of DeviceCode
+		Click text: it, waitFor:30 , contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"45"
+	end repeat
+end KeyInDeviceCode
+
+//Using image to Key In the number or alphabet
+to handle KeyInDeviceCodeKeyPad with DeviceCode
+	set myKeyPad to {AlphabetQ:"Q",AlphabetW:"W",AlphabetE:"E",AlphabetR:"R",AlphabetT:"T",AlphabetY:"Y",AlphabetU:"U",AlphabetI:"I",AlphabetO:"O",AlphabetP:"P",AlphabetA:"A",AlphabetS:"S",AlphabetD:"D",AlphabetF:"F",AlphabetG:"G",AlphabetH:"H",AlphabetJ:"J",AlphabetK:"K",AlphabetL:"L",AlphabetZ:"Z",AlphabetX:"X",AlphabetC:"C",AlphabetV:"V",AlphabetB:"B",AlphabetN:"N",AlphabetM:"M",Num0:"0", Num1:"1", Num2:"2", Num3:"3", Num4:"4", Num5:"5", Num6:"6", Num7:"7", Num8:"8", Num9:"9"}
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+	Click imageName:"Setup/DustbinIcon", waitFor:15
+	repeat each character of DeviceCode
+		log it
+		put myKeyPad.keyForValue(it) into keyPadNum
+		Tap imageName:"BuildInKeyboard/"&keyPadNum, waitFor:15
+	end repeat
+end KeyInDeviceCodeKeyPad
+
+
+//set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+//KeyInDeviceCode "YK86HV5N"
+//KeyInDeviceCode "BJC8KYMS"
+//'KeyInDeviceCodeKeyPad "YK86HV5N"

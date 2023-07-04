@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1679538356.8670001,
+	"ocrcapturestring": "x7",
+	"originalcapturelocation": [
+		624,
+		282,
+		45,
+		44
+	],
+	"createddate": 1679537711.1430001,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[22,22]",
+					"Tolerance": "_45",
+					"Discrepancy": "_0",
+					"SearchType": "Tolerant of Background"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "Item/ItemQuantity/ItemQuantityX7.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					624,
+					282,
+					45,
+					44
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "x7"
+			}
+	],
+	"name": "Item/ItemQuantityX7"
+}

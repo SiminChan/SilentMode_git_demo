@@ -1,0 +1,86 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 16-March-2023
+// Module: Open Cashier
+//////////////////////////////////////
+
+params Amount
+
+//Check the Amouts is number
+set isAmountIsNumber to true
+If Amount is not a number 
+	assert that isAmountIsNumber is false
+Else
+	assert that isAmountIsNumber is true
+End If
+
+//Check amouts is vaid number
+set isAmountIsNumber to true
+log Amount
+If Amount Mod 10 is 0
+	assert that isAmountIsNumber is true 
+Else If Amount Mod 10 is 5
+	assert that isAmountIsNumber is true 
+Else
+	assert that isAmountIsNumber is false
+End If
+
+//Click Set By Denomination
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+Click text:"Set By Denomination", waitFor:10
+Set the SearchRectangle to empty
+
+//Wait the page to load
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+WaitFor 15, "DenominationIcon/RM0.05"
+
+Set the SearchRectangle to empty
+
+//Seperate the amounts into Ringgit and Cent
+Put Amount Mod 100 into Cent
+Put Amount minus Cent into Ringgit
+Put Ringgit Div 100 into Ringgit
+//print out Ringgit & Cent
+Log "Ringgit: "&Ringgit
+Log "Cent: "&Cent
+
+//set Ringgit and Cent List and create dictonaries for Ringgit and Cent for image pairing
+insert [100, 50, 20, 10, 5, 1] into myRinggitInput
+insert [50, 20, 10, 5] into myCentInput
+set myRinggitKey to {RM100:"100", RM50:"50", RM20:"20", RM10:"10", RM5:"5", RM1:"1"}
+set myCentKey to {"RM0.50":"50","RM0.20":"20","RM0.10":"10","RM0.05":"5"}
+
+//Repeat and tap all the Ringgit in the RinggitInput list
+repeat with each RinggitInput in myRinggitInput
+	Log "Ringgit Input (100,50,20...):"&RinggitInput
+	//Calculate total press need   
+	put Ringgit Div RinggitInput into TotalAmount 
+	Log "Total Press for "& RinggitInput &": "&TotalAmount
+	//put the reminder back to next loop
+	put Ringgit Mod RinggitInput into Ringgit	
+	if TotalAmount is greater than or equal to 1
+		repeat with n=TotalAmount down to 1
+			put myRinggitKey.keyForValue(RinggitInput) into RinggitToPress
+			Tap imageName: "DenominationIcon/"&RinggitToPress, waitFor: 2
+		end repeat
+	end if
+end repeat
+
+//Repeat and tap all the Cent in the CentInput list
+repeat with each CentInput in myCentInput
+	put Cent Div CentInput into TotalAmount
+	put Cent Mod CentInput into Cent
+	if TotalAmount is greater than or equal to 1
+		repeat with n=TotalAmount down to 1
+			put myCentKey.keyForValue(CentInput) into CentToPress
+			Tap imageName: "DenominationIcon/"&CentToPress, waitFor: 2
+		end repeat
+	end if
+end repeat
+
+return Amount
+
+// press the proceed button 
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+Tap text:"Proceed", waitFor:5
+set the SearchRectangle to empty 

@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1679545696.7059999,
+	"ocrcapturestring": "Stashed Cart",
+	"originalcapturelocation": [
+		97,
+		78,
+		316,
+		64
+	],
+	"createddate": 1679545409.4190001,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[158,32]",
+					"Tolerance": "_56",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.2.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "DashboardIcons/StashedCartPage.png",
+				"connectionname": "POS A",
+				"type": 1,
+				"capturerect": [
+					97,
+					78,
+					316,
+					64
+				],
+				"connectionserverid": "192.168.0.109",
+				"capturedocrtext": "Stashed Cart"
+			}
+	],
+	"name": "StashedCartPage"
+}

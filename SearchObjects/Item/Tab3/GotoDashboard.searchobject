@@ -1,0 +1,47 @@
+{
+	"lastmodifieddate": 1679476620.95,
+	"ocrcapturestring": "GO TO DASHBOARD",
+	"originalcapturelocation": [
+		2154,
+		1887,
+		369,
+		73
+	],
+	"createddate": 1679476346.6300001,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"deleted": true,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[184,36]",
+					"Tolerance": "_57",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "Item/Tab3/GotoDashboard.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					2154,
+					1887,
+					369,
+					73
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "GO TO DASHBOARD"
+			}
+	],
+	"name": "Item/Tab3/GotoDashboard"
+}

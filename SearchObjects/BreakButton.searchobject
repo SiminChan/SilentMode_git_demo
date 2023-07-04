@@ -1,0 +1,53 @@
+{
+  "lastmodifieddate" : 1679297873.503,
+  "ocrcapturestring" : "Break",
+  "testlocationdata" : [
+    {
+      "name" : "FiveShiftRelatedButton\/BreakButton.png",
+      "sutinfo" : {
+        "device_os_version" : "iOS 15.7.1",
+        "os" : "OSX",
+        "device" : "iPad8,12",
+        "os_version" : "13.0.1",
+        "version" : "6.0",
+        "type" : "iOS Gateway",
+        "device_type" : "iPad Pro (12.9 inch) 4th Gen"
+      },
+      "connectionname" : "pos a",
+      "connectionportnum" : 5908,
+      "capturedocrtext" : "Break",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_71",
+        "CropRectangle" : "[0,0,0,0]",
+        "HotSpot" : "[62,23]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.227",
+      "capturerect" : [
+        831,
+        1611,
+        125,
+        47
+      ]
+    }
+  ],
+  "createddate" : 1679297852.6859999,
+  "lastfoundlocation" : [
+    831,
+    1611,
+    125,
+    47
+  ],
+  "originalcapturelocation" : [
+    831,
+    1611,
+    125,
+    47
+  ],
+  "lastfounddate" : 1685352130.8033061,
+  "name" : "BreakButton"
+}

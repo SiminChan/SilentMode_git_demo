@@ -1,0 +1,12 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+//resume the pump 
+Click imageName:"PumpDashboard/ResumeIcon", waitFor:15
+
+Set the SearchRectangle to empty

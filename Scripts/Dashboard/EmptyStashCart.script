@@ -1,0 +1,6 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+Put ImageFound("DashboardIcons/StashedCartPage") into isStashCartPageLoaded
+
+Assert that isStashCartPageLoaded is true
+

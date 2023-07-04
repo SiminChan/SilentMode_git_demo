@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1679280115.878,
+	"ocrcapturestring": "Auto User 3",
+	"originalcapturelocation": [
+		1945,
+		1518,
+		187,
+		32
+	],
+	"createddate": 1679280115.878,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Tolerance": "_71",
+					"HotSpot": "[93,16]",
+					"Scale": "    1",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_type": "iPad Pro (12.9 inch) 4th Gen",
+					"device": "iPad8,12",
+					"os": "OSX",
+					"version": "6.0",
+					"device_os_version": "iOS 15.7.1",
+					"type": "iOS Gateway",
+					"os_version": "13.0.1"
+				},
+				"name": "AutoUser3.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					1945,
+					1518,
+					187,
+					32
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "Auto User 3"
+			}
+	],
+	"name": "AutoUser3"
+}

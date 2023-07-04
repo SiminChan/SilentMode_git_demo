@@ -1,0 +1,26 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 13-March-2023
+// Module: Open Cashier - verify the pge is loaded
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+set IsStartFloatFound to ImageFound(text:"Start Float", waitFor:15)
+set IsDirectInputFound to ImageFound(text:"Direct Input", waitFor:15)
+set IsSetByDenominationFound to ImageFound(text:"Set By Denomination", waitFor:15)
+
+Set the SearchRectangle to empty
+
+Assert that IsStartFloatFound is true
+Assert that IsDirectInputFound is true
+Assert that IsSetByDenominationFound is true
+
+//set isStartFloatPageLoaded to true
+//If ImageFound(text:"Start Float", waitFor:5) and ImageFound(text:"Direct Input", waitFor:5) and //ImageFound(text:"Set By Denomination", waitFor:5)
+//assert that isStartFloatPageLoaded is true
+//Else
+//assert that isStartFloatPageLoaded is false
+//End If
+
+//Set the SearchRectangle to empty

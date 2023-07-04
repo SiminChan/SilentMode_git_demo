@@ -1,0 +1,41 @@
+﻿//params FirstItemInTab3Name
+
+//Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("PanelLeft",WaitFor:3)
+
+//wait 3
+
+//Put ReadText([131,264], [603,324]) into isItemNameFound
+
+//Log "Item Name Found: "&ReadText([131,264], [603,324])
+
+//Put "MILO ACTGE UHT 200ml" into FirstItemInTab3Name
+
+//Assert that isItemNameFound is FirstItemInTab3Name
+
+//Assert that isItemNameFound is true
+
+//set the SearchRectangle to empty
+
+////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-May-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+params FirstItemInTab3Name
+
+put true into isItemNameFound
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("PanelLeft")
+
+if ImageFound(text:"MILO ACTGE UHT 200ml", waitFor:15)
+	put true into FirstItemInTab3Name
+else
+	put false into FirstItemInTab3Name
+end if
+
+//log FirstItemInTab3Name
+
+Assert that isItemNameFound is FirstItemInTab3Name
+
+set the SearchRectangle to empty

@@ -1,0 +1,21 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Params GP_ClickHose
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"PumpDashboard/SuspendIcon", waitFor:15
+
+if GP_ClickHose is true
+	put ImageFound(text:"pump is 'delivery paused'", waitFor:15) into IsPumpSuspended
+else
+	put ImageFound(text:"pump is 'suspended'", waitFor: 20) into IsPumpSuspended
+end if
+
+Assert that IsPumpSuspended is True
+
+Set the SearchRectangle to empty

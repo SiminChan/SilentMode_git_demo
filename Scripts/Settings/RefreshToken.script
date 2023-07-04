@@ -1,0 +1,27 @@
+﻿//////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 26-April-2023
+// Module: Setting
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageFound(text:"Settings & Configuration", waitFor: 20) into IsSettingAndConfigurationFound
+Assert that IsSettingAndConfigurationFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+if ImageFound(text:"Refresh Token", waitFor:15)
+	Click text:"Refresh Token", waitFor:15
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+	if ImageFound(text:"Success Refresh Token", waitFor:15)
+		LogSuccess "Success Refresh Token"
+	else
+		LogError "Fail Refresh Token"
+	end if
+	Click ImageLocation(text:"Success Refresh Token", waitFor:15) + [0, -100] 
+else
+	LogError "Refresh Token button not found"
+end if
+
+Set the SearchRectangle to empty

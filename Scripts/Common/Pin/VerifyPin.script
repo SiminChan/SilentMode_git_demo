@@ -1,0 +1,25 @@
+﻿params isClockIn,isPinValid,IsShiftStarted
+
+//CaptureScreen 
+//Put the result
+
+if isPinValid is true then
+	put ImageFound(imageName:"ErrorDialogue/Error", waitFor:3) into IsErrorIconFound
+	if isShiftStarted is true then
+		assert that IsErrorIconFound is true
+		
+		//put ImageFound(imageName:"ErrorDialogue/StaffAttendanceClockOut", WaitFor: 3) into IsStaffAttendanceClockOutErrorMessageFound
+		//assert that IsStaffAttendanceClockOutErrorMessageFound is true
+		put ImageFound(text:"Drawer Session Active", waitFor:15) into IsDrawerSessionActiveFound
+		assert that IsDrawerSessionActiveFound is true
+		
+	else
+		assert that IsErrorIconFound is false
+	end if
+else
+	put ImageFound(imageName:"ErrorDialogue/Error", waitFor:3) into IsErrorIconFound
+	assert that IsErrorIconFound is true
+	
+	put ImageFound(imageName:"ErrorDialogue/StaffPinInvalid", WaitFor: 3) into IsStaffInvalidPINErrorMessageFound
+	assert that IsStaffInvalidPINErrorMessageFound is true
+end if

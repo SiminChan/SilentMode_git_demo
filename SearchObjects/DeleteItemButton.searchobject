@@ -1,0 +1,51 @@
+{
+	"lastmodifieddate": 1679545696.5999999,
+	"lastfoundlocation": [
+		685,
+		494,
+		48,
+		53
+	],
+	"originalcapturelocation": [
+		1077,
+		1942,
+		48,
+		53
+	],
+	"createddate": 1679545508.9780002,
+	"lastfounddate": 1684138815.131,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[25,27]",
+					"Tolerance": "_45",
+					"Discrepancy": "_0",
+					"SearchType": "Tolerant of Background"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.2.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "DashboardIcons/DustbinButton.png",
+				"connectionname": "POS A",
+				"type": 1,
+				"capturerect": [
+					1077,
+					1942,
+					48,
+					53
+				],
+				"connectionserverid": "192.168.0.109"
+			}
+	],
+	"name": "DeleteItemButton"
+}

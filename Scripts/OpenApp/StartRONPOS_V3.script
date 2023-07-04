@@ -1,0 +1,70 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-May-2023
+// Module: OpenApp
+//////////////////////////////////////
+
+Params SUTName 
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+
+//click the no thanks
+If ImageFound(text:"Crashed", waitFor:5)
+	Click text:"No Thanks", waitFor:10
+End If
+
+LaunchApp "RONPOS"
+
+if ImageFound(text:"Request Time Out", waitFor:15)
+	Click ImageLocation(text:"Request") + [0,-550]
+end if
+
+//by pass the pop-up
+//If ImageFound(text:"drawersession", waitFor:15)
+//	Click (ImageLocation(text:"drawersession") + [0, -1000])
+//End If
+
+//Click imageName:"MainPage/CashierPage", waitFor:10
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+Click text:"Cashier", waitFor:15 // first item
+
+//Close Cashier
+put ImageFound(text:"Shift Started", waitFor:15) into IsShiftStartedFound
+if IsShiftStartedFound
+	Click text:"Close Cashier", waitFor:15
+	run "Common/Pin/EnterPin_V3",9630 //params 
+	//Close the Cashier
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+	if ImageFound(text:"Close Cashier", waitFor:20)
+		set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+		Click text:"Proceed", waitFor:20
+		set the SearchRectangle to empty
+	else
+		LogError "Close cashier page is not show"
+	end if
+end if
+
+//sroll the attendance
+Repeat 5 times
+	Set the SwipeSpeed to 200 
+	SwipeUp [RemoteScreenSize().x*4/5,RemoteScreenSize().y/2]
+End Repeat
+
+//Clock Out the specific POS users: from 1 to 3 
+//loop for 1 to 3 
+
+//put "Eggplant POS C" into SUTName
+
+repeat with each item of [1,2,3]
+	put "Common/ChooseStaffNameProfile_V3" (it, SUTName) into UserName
+	log UserName
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+	if ImageFound(text:UserName, waitFor:15)
+		put "Common/ChoosePinProfile_V3" (it, SUTName) into UserPassword
+		log UserPassword
+		Click text:"Clock In", waitFor:15
+		Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle",waitfor:20)
+run "Common/Pin/EnterPin_V3",UserPassword
+	end if
+end repeat
+

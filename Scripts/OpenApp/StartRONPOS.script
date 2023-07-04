@@ -1,0 +1,171 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+
+//click the no thanks
+If ImageFound(text:"Crashed", waitFor:5)
+	Click text:"No Thanks", waitFor:10
+End If
+
+LaunchApp "RONPOS"
+
+//If ImageFound(text:"your local network", waitFor:35)
+//	Click text:"Don't Allow", waitFor:15
+//End Ifsm
+
+//by pass the pop-up
+If ImageFound(text:"drawersession", waitFor:35)
+	Click (ImageLocation(text:"drawersession") + [0, -1000])
+End If
+
+//Click imageName:"MainPage/CashierPage", waitFor:10
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+Click text:"Cashier", waitFor:30 // first item
+
+//Click "MainPage/CashierPage", WaitFor:10
+
+put ImageFound(ImageName:"ShiftStarted", waitFor:20) into IsShiftStartedTagFound
+if IsShiftStartedTagFound is true
+	
+	Click "FiveShiftRelatedButton/CloseCashierButton"
+	
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle",waitfor:20)
+	
+	set pins = "9 6 3 0"//?????sting ???? integer 9630 div 10 mod 10
+	
+	If ImageFound(text:"Enter your PIN", waitFor:20) 
+		log "Pin# is " & pins
+		split pins by " "
+		
+		repeat with each pin in pins
+			wait 1
+			Click text:pin
+		end repeat
+	end if
+	
+	Set the SearchRectangle to empty
+	
+	//set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+	
+	//set IsStartFloatFound to ImageFound(text:"Close Cashier", waitFor:3)
+	//set IsDirectInputFound to ImageFound(text:"Direct Input", waitFor:3)
+	//set IsSetByDenominationFound to ImageFound(text:"Set By Denomination", waitFor:3)
+	
+	//Set the SearchRectangle to empty
+	
+	//Assert that IsStartFloatFound is true
+	//Assert that IsDirectInputFound is true
+	//Assert that IsSetByDenominationFound is true
+	
+	
+	//validate the screen is appear
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+	if ImageFound(text:"Close Cashier", waitFor:25)
+		set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+		Click text:"Proceed", waitFor:20
+		set the SearchRectangle to empty
+		else
+		LogError "Input page is not show"
+	end if
+	
+	
+	//else
+	
+	//put ImageFound(ImageName:"MainPage/StartShift") and ImageFound("MainPage/CashierSessionButton") and ImageFound("MainPage/OutdoorAttendant") into IsStartShiftPageFound
+	
+	//assert that IsStartShiftPageFound is true
+end if
+
+//set FirstCoordinate to ImageLocation(ImageName:"ClockInClockOut", SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:20))
+
+set FirstCoordinate to ImageLocation(text:"Clock In", SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:35))
+
+put (FirstCoordinate - [0,300]) into SecondCoordinate
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:20)
+
+//Repeat 9 times
+//	Set the SwipeSpeed to 15
+//	SwipeUp [item 1 of SecondCoordinate, item 2 of SecondCoordinate]
+//End Repeat	
+
+Repeat 5 times
+	Set the swipeSpeed to 700
+	SwipeUp [item 1 of SecondCoordinate, item 2 of SecondCoordinate]
+End Repeat
+
+
+
+
+
+
+
+
+if ImageFound(text:"Auto User 2", waitFor: 10)
+	
+	Click ImageLocation("ClockInClockOut")
+	
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle",waitfor:20)
+	
+	set pins = "7 0 7 0"
+	
+	if ImageFound(text:"Enter your PIN", waitFor:10)
+		log "Pin# is " & pins
+		split pins by " "
+		
+		repeat with each pin in pins
+			wait 1
+			Click text:pin
+		end repeat
+		
+	end if
+	
+end if
+
+if ImageFound(text:"Auto User 3", waitFor: 10)
+	
+	Click ImageLocation("ClockInClockOut")
+	
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle",waitfor:20)
+	
+	set pins = "9 0 9 0"
+	
+	If ImageFound(text:"Enter your PIN", waitFor:20)
+		log "Pin# is " & pins
+		split pins by " "
+		
+		repeat with each pin in pins
+			wait 1
+			Click text:pin
+		end repeat
+	end if
+	
+	Set the SearchRectangle to empty
+	
+end if
+
+
+-- Step 1: Enter valid pin
+//call "Common/Pin/EnterPin" "9 0 9 0"
+//assert ImageFound(imageName:"ErrorDialogue/Error", waitFor:3) is false
+
+-- Step 2: check is clock in or clock out
+//set isClockIn to true
+//set staffName to "Auto User 3"
+//repeat until imagefound(text:staffName,waitFor:0,SearchRectangle:"Common/CustomRectangle".ScreenPart("Panel",waitFor:10))
+//log "attempt to search staff name: " &repeatindex
+//if repeatindex = 15 then
+//set isClockIn to false
+//end if
+
+//set FirstCoordinate to ImageLocation(ImageName:"ClockInClockOut", //SearchRectangle:"Common/CustomRectangle".ScreenPart("BottomRightQuadrant",waitFor:5))
+//put (FirstCoordinate - [0,300]) into SecondCoordinate
+//Set the SwipeSpeed to 20
+//SwipeUp [item 1 of SecondCoordinate, item 2 of SecondCoordinate]
+//
+//wait 5
+//end repeat
+
+-- Step 3: enter pin if current status is clock in
+//if isClockIn = true then
+//call "Common/Pin/EnterPin" "9 0 9 0"
+//assert ImageFound(imageName:"ErrorDialogue/Error", waitFor:3) is false
+//end if

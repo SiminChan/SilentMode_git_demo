@@ -1,0 +1,19 @@
+﻿params pins
+
+//log "entering enter pin script"
+//set pins = "7 0 7 0"
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle",waitfor:5)
+//SetOption SearchRectangle: [[672,335],[2055,1723]]
+
+If ImageFound(text:"Enter your PIN", waitFor:15)
+	log "Pin# is " & pins
+	split pins by " "
+	
+	repeat with each pin in pins
+		wait 1
+		Click text:pin
+	end repeat
+end if
+
+set the SearchRectangle to empty

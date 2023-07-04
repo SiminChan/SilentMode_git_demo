@@ -1,0 +1,143 @@
+{
+	"originalcapturelocation": [
+		541,
+		1840,
+		306,
+		45
+	],
+	"lastmodifieddate": 1679532784.494,
+	"createddate": 1679532784.494,
+	"name": "Item/SelectQuantity",
+	"lastfounddate": 1679554071.655,
+	"ocrcapturestring": "Select Quantity",
+	"lastfoundlocation": [
+		541,
+		1840,
+		306,
+		45
+	],
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"domelements": [
+					{
+							"elementLocation": "{x = 514; y = 733; width = 338; height = 35}",
+							"visible": "true",
+							"y": "733",
+							"enabled": "true",
+							"elementName": "MILOACTGEUHT200ml",
+							"accessible": "true",
+							"type": "XCUIElementTypeStaticText",
+							"width": "338",
+							"elementScale": 2,
+							"label": "MILO ACTGE UHT 200ml",
+							"x": "514",
+							"height": "35",
+							"index": "3",
+							"name": "MILO ACTGE UHT 200ml",
+							"elementType": "Checkpoint",
+							"value": "MILO ACTGE UHT 200ml"
+						},
+					{
+							"elementLocation": "{x = 623; y = 799; width = 33; height = 30}",
+							"visible": "true",
+							"y": "799",
+							"enabled": "true",
+							"elementName": "x1",
+							"accessible": "true",
+							"type": "XCUIElementTypeStaticText",
+							"width": "33",
+							"elementScale": 2,
+							"label": "x 1",
+							"x": "623",
+							"height": "30",
+							"index": "4",
+							"name": "x 1",
+							"elementType": "Checkpoint",
+							"value": "x 1"
+						},
+					{
+							"elementLocation": "{x = 694; y = 799; width = 48; height = 30}",
+							"visible": "true",
+							"y": "799",
+							"enabled": "true",
+							"elementName": "201",
+							"accessible": "true",
+							"type": "XCUIElementTypeStaticText",
+							"width": "48",
+							"elementScale": 2,
+							"label": "2.01",
+							"x": "694",
+							"height": "30",
+							"index": "5",
+							"name": "2.01",
+							"elementType": "Checkpoint",
+							"value": "2.01"
+						},
+					{
+							"elementLocation": "{x = 20; y = 894; width = 653; height = 70}",
+							"visible": "true",
+							"y": "894",
+							"enabled": "true",
+							"elementName": "SelectQuantity",
+							"accessible": "true",
+							"type": "XCUIElementTypeButton",
+							"width": "653",
+							"elementScale": 2,
+							"label": "Select Quantity",
+							"x": "20",
+							"height": "70",
+							"index": "6",
+							"name": "Select Quantity",
+							"elementType": "Button"
+						},
+					{
+							"elementLocation": "{x = 693; y = 894; width = 653; height = 70}",
+							"visible": "true",
+							"y": "894",
+							"enabled": "true",
+							"elementName": "PriceOverride",
+							"accessible": "true",
+							"type": "XCUIElementTypeButton",
+							"width": "653",
+							"elementScale": 2,
+							"label": "Price Override",
+							"x": "693",
+							"height": "70",
+							"index": "7",
+							"name": "Price Override",
+							"elementType": "Button"
+						}
+				],
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[153,22]",
+					"Tolerance": "_57",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"type": "iOS Gateway",
+					"device": "iPad8,12",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "Item/SelectQuantity.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"connectionserverid": "192.168.0.227",
+				"capturerect": [
+					541,
+					1840,
+					306,
+					45
+				],
+				"capturedocrtext": "Select Quantity"
+			}
+	]
+}

@@ -1,0 +1,5 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomLeftPanel")
+
+Put ImageFound("DashboardIcons/AddedToStashCart1") into isItemAddedtoStashCart
+
+Assert that isItemAddedtoStashCart is true

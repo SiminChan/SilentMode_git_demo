@@ -1,0 +1,20 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-May-2023
+// Module: Common
+//////////////////////////////////////
+
+//Enter the PINS
+Params Pins
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Middle")
+if ImageFound(text:"Enter your PIN", waitFor:20)
+	repeat each char in Pins
+		Click text:it, waitFor:5
+	end repeat
+else
+	LogError "Password Pad is not popup"
+	
+end if
+
+set the SearchRectangle to empty

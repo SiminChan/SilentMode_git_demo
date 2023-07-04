@@ -1,0 +1,25 @@
+﻿{
+    CaptureDate = "2023-05-02 06:53:51 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        "2732",
+        "2048");
+    HasAlpha = 0;
+    HotSpotX = 16;
+    HotSpotY = 18;
+    IgnoreColor = (
+        "#FFFFFF");
+    ImageDescription = <>;
+    ImageTolerance = 0;
+    KeepColor = "#D9D9D9";
+    KeepColorTolerance = 10;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1529;
+    OriginalLocationY = 421;
+    Precise = 1;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "Setup/dot";
+    tags = ();
+}

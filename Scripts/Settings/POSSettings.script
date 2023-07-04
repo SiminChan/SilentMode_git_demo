@@ -1,0 +1,37 @@
+﻿//////////////////////////////////////
+// Creator: Farhan
+// Date: 11-May-2023
+// Module: Setting
+//////////////////////////////////////
+
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageFound(text:"Settings & Configuration", waitFor: 20) into IsSettingAndConfigurationFound
+Assert that IsSettingAndConfigurationFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+Click text:"POS Settings", waitFor:15
+
+Set the SwipeSpeed to 80 
+repeat 2 times
+	SwipeUp [RemoteScreenSize().x/2,RemoteScreenSize().y/2]
+	SwipeDown [RemoteScreenSize().x/2,RemoteScreenSize().y/2]
+end repeat
+Set the SearchRectangle to empty
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put ImageFound(text:"SAFE DROP", waitFor: 15) into IsSAFEDROPFound
+Assert that IsSAFEDROPFound is true
+
+Put ImageRectangle(text:"600", waitFor:5).topLeft +[0,-10] into TR
+Put ImageRectangle(text:"600", waitFor:5).bottomLeft + [-200,10] into BL
+log ReadText(TR,BL) //READ RM
+
+put ImageFound(text:"POS PIN CONFIGURATION", waitFor: 15) into IsConfigFound
+Assert that IsConfigFound is true
+
+Set the SearchRectangle to empty
+
+

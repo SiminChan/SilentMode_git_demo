@@ -1,0 +1,23 @@
+﻿////////////////////////////////////////
+// Creator: Luwell
+// Date: 24-May-2023
+// Module: Pump Test
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+put ImageFound(imageName:"PumpDashboard/Pump", waitFor:5) into isPumpFound
+Assert that isPumpFound is True
+
+put ImageFound(imageName:"PumpDashboard/Transaction", waitFor:5) into IsTransactionFound
+Assert that IsTransactionFound is True
+
+Click imageName:"PumpDashboard/Transaction", waitFor:5
+
+if ImageFound(text:"PUMP TEST TRANSACTIONS", waitFor:10)
+	LogSuccess "Transaction Tab page is lauched"
+else
+	LogError "Transaction Tab page is not launched"
+end if
+
+Set the SearchRectangle to empty

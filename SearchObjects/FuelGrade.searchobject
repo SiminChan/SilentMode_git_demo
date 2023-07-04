@@ -1,0 +1,46 @@
+{
+	"lastmodifieddate": 1679546048.8410001,
+	"ocrcapturestring": "Kerosene  FSD ■ VPR ■ VP97 ■ FSB7 EU5 FS95",
+	"originalcapturelocation": [
+		58,
+		51,
+		1554,
+		71
+	],
+	"createddate": 1679546048.8410001,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Tolerance": "_73",
+					"HotSpot": "[777,35]",
+					"Scale": "    1",
+					"Discrepancy": "_0",
+					"SearchType": "Smoothed for Text"
+				},
+				"sutinfo": {
+					"device_type": "iPad Pro (12.9 inch) 4th Gen",
+					"device": "iPad8,12",
+					"os": "OSX",
+					"version": "6.0",
+					"device_os_version": "iOS 15.7.1",
+					"type": "iOS Gateway",
+					"os_version": "13.2.1"
+				},
+				"name": "FuelGrade.png",
+				"connectionname": "POS A",
+				"type": 1,
+				"capturerect": [
+					58,
+					51,
+					1554,
+					71
+				],
+				"connectionserverid": "192.168.0.109",
+				"capturedocrtext": "Kerosene  FSD ■ VPR ■ VP97 ■ FSB7 EU5 FS95"
+			}
+	],
+	"name": "FuelGrade"
+}

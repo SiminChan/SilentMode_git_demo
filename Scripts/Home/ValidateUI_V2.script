@@ -1,0 +1,42 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 16-May-2023
+// Module: Home
+//////////////////////////////////////
+
+params IsClockIn,staffName
+
+if IsClockIn is true then
+	
+	//put "Auto User 2" into staffName
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+	repeat until ImageFound(text:staffName, waitFor:15)
+		log "Counter: "&counter()
+		set the SwipeSpeed to 500
+		SwipeUp [RemoteScreenSize().x*4/5,RemoteScreenSize().y/2]
+		
+		if counter() greater than 5 then throw "User Not Found"
+	end repeat
+	
+	put ReadText(ImageRectangle(text:staffName, waitFor:15)) into UserName
+	log "User Name: "&UserName
+	
+Else
+	set isStaffNameFound to true
+	//put "Auto User s2" into staffName
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+	repeat until ImageFound(text:staffName, waitFor:15)
+		log "Counter: "&counter()
+		if counter() greater than 4 then
+			set isStaffNameFound to false
+			Exit repeat
+		end if
+		set the SwipeSpeed to 500
+		SwipeUp [RemoteScreenSize().x*4/5,RemoteScreenSize().y/2]
+	end repeat
+	
+	assert that isStaffNameFound is false
+	
+End if
+
+Set the SearchRectangle to empty

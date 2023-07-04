@@ -1,0 +1,94 @@
+﻿//Swipe 
+
+Set the SwipeSpeed to 80 //Sets the SwipeSpeed to drag 80 pixels during the swipe
+SwipeUp the remoteScreenSize times .9 //Starts the swipe 90% from the top and 90% from the left of the screen.
+
+
+Set the SwipeSpeed to 80 //Sets the SwipeSpeed to drag 80 pixels during the swipe
+//SwipeUp the remoteScreenSize times .9.2 //Starts the swipe 90% from the top and 90% from the left of the screen.
+
+
+//FOR MOBILE OR TABLET
+//MOUSE MOVE
+Set the SwipeSpeed to 80 //Use the SwipeSpeed global property to adjust the number of pixels dragged during the swipe action.
+SwipeUp [RemoteScreenSize().x*1/5,RemoteScreenSize().y/2]
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageRectangle(text:"Cash", waitFor:15) into paymentRow
+put paymentRow.topRight + [0, -50] into TL
+put paymentRow.bottomRight + [2500,50] into BR
+
+log "Read Text: "&ReadText(TL,BR)
+put ReadText(TL,BR) into RowComponents
+
+put RowComponents split by @"\n" into RowComponent // split by -> @"\n"
+
+log "Row Component: "&RowComponent // in list format
+
+log "The first item from the list: "&the first item of RowComponent
+
+//-------------------------------------------------------------------------------------------------------------------------------------------
+
+swipeup
+
+repeat until ImageFound(text:"Logout", waitFor:15)
+	log "Counter: "&counter()
+	if counter() greater than 10 then
+		Exit repeat
+	end if
+	set the SwipeSpeed to 200
+	SwipeUp [RemoteScreenSize().x*4/5,RemoteScreenSize().y/2]
+end repeat
+
+log IpAddressList
+
+log dots
+log item 1 of dots
+log item 2 of dots
+log item 3 of dots
+put item 3 of dots into dot
+click dot +[100,0] 
+
+put [251,123,423,532] into LocationList
+put[192,168,10,2] into IpAddressList
+put 1 into var_1
+repeat each item in IpAddressList
+	log "counter: "&  counter()
+	if counter() is equal to 2
+		log " counter is 2"
+	end if
+	log "ip address: "&it 
+	log "location: "&item var_1 of LocationList
+	put var_1 + 1 into var_1
+	log "var value: "& var_1
+	log "--------------------------"
+	
+end repeat
+
+
+//testing 123
+
+
+// testing
+put "He said:"Hello word!"" into str_1
+log str_1
+
+
+Disconnect POS
+Connect CDS
+//DO SOMETHING HRE
+
+
+log today
+
+
+
+
+
+
+
+

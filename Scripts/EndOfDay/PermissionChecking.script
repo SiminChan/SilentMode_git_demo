@@ -1,0 +1,14 @@
+﻿params GP_UseValidPin
+
+if GP_UseValidPin is false
+	If ImageFound(text:"Staff Pin Invalid", waitFor:15)
+		LogSuccess "Invalid Pin not able to login"
+		CaptureScreen 
+	end if
+else 
+	If ImageFound(text:"No Permission", waitFor:15)
+		LogSuccess "User Do Not has permission to do EOD"
+		CaptureScreen 
+		
+	end if
+end if

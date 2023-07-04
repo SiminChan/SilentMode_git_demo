@@ -1,0 +1,16 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+ClickSaveHubIpAddress
+
+to handle ClickSaveHubIpAddress with 
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("RightHalf")
+	Click text:"Save", waitFor:15
+	set the SearchRectangle to empty
+end ClickSaveHubIpAddress
+
+
+

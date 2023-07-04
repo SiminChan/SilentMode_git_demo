@@ -1,0 +1,52 @@
+﻿params profileID, SUTName
+
+if SUTName is "Eggplant POS A"
+	if profileID is 0
+		return "epj#*&^GJELT8@" //return invalid profile
+	else if profileID is 1
+		return "Auto User 1" //return Auto User 1 profile
+	else if profileID is 2
+		return "Auto User 2" //TODO: return Auto User 2 profile pin
+	else if profileID is 3
+		return "Auto User 3" //TODO: return Auto User 3 profile pin
+	else if profileID is 100
+		return "Supervisor???" //TODO: return supervisor profile pin
+	else
+		throw "Invalid profile ID: " & profileID
+	end if
+	
+else if SUTName is "Eggplant POS B"
+	if profileID is 0
+		return "epj#*&^GJELT8@" //return invalid profile
+	else if profileID is 1
+		return "Auto User 4" //return Auto User 1 profile
+	else if profileID is 2
+		return "Auto User 5" //TODO: return Auto User 2 profile pin
+	else if profileID is 3
+		return "Auto User 6" //TODO: return Auto User 3 profile pin
+	else if profileID is 100
+		return "Supervisor???" //TODO: return supervisor profile pin
+	else
+		throw "Invalid profile ID: " & profileID
+	end if
+	
+else if SUTName is "Eggplant POS C"
+	if profileID is 0
+		return "epj#*&^GJELT8@" //return invalid profile
+	else if profileID is 1
+		return "Auto User 7" //return Auto User 1 profile
+	else if profileID is 2
+		return "Auto User 8" //TODO: return Auto User 2 profile pin
+	else if profileID is 3
+		return "Auto User 9" //TODO: return Auto User 3 profile pin
+	else if profileID is 100
+		return "Supervisor???" //TODO: return supervisor profile pin
+	else
+		throw "Invalid profile ID: " & profileID
+	end if
+	
+else
+	
+end if
+
+throw "Invalid profile ID: " & profileID &" ,Invalid SUT Name: "&SUTName& " ,please make sure your Profile and SUT is define in script."

@@ -1,0 +1,11 @@
+﻿//////////////////////////////////////
+// Creator: Farhan
+// Date: 11-May-2023
+// Module: Setting
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+Click ImageLocation(text:"Pump") + [0,-30]
+
+Set the SearchRectangle to empty

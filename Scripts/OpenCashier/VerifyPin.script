@@ -1,0 +1,8 @@
+﻿params isPinValid
+
+put ImageFound(imageName:"ErrorDialogue/Error", waitFor:3) into IsErrorIconFound
+if isPinValid is true then
+	assert that IsErrorIconFound is false
+else
+	assert that IsErrorIconFound is true
+end if

@@ -1,0 +1,36 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-March-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+//after select Amount or Litre select the Fuel Grade
+Params FuelGrade
+
+//put VP97 into FuelGrade
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+//check the Litre or Amount is valid
+put ImageRectangle(text:"Litre", waitFor:15).topRight + [0, -200] into TL
+put ImageRectangle(text:"Litre", waitFor:15).topRight + [1200, 0] into BR
+log ReadText(TL,BR) //TODO delete
+put ReadText(TL,BR) into AmountOrLitre
+if AmountOrLitre equal to "RM0.00" or AmountOrLitre equal to "0.00L"
+	LogError "Invalid Amount or Litre"
+end if
+
+//Select the Fuel Grade
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopRightQuadrant")
+
+if FuelGrade = EU5
+	Click text:FuelGrade, waitFor:5
+else if FuelGrade = FS95
+	Click text:FuelGrade, waitFor: 5
+else if FuelGrade = VP97
+	Click text:FuelGrade, waitFor: 5
+else
+	LogError "Invalid Params"
+end if
+
+return FuelGrade

@@ -1,0 +1,59 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Simulator
+//////////////////////////////////////
+
+//close safari first
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomLeftQuadrant")
+MoveTo imageName:"PumpSimulator/SafariIcon", waitFor:15
+RightClick imageName:"PumpSimulator/SafariIcon", waitFor:15
+if ImageFound(text:"Quit", waitFor:15)
+	Click text:"Quit", waitFor:5
+end if
+
+//TypeText Commandkey,w
+
+//open safari
+TypeText Commandkey,Space
+TypeText "Safari" 
+TypeText Enter
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+//detect icon
+//check command for max safari
+if ImageFound(imageName:"PumpSimulator/SafariShieldIcon", waitFor:15)
+	//older URL //TypeText "https://meshcentral.sentinel.getslurp.com/sharing?c=rctgdAgs8Cb0$KafTHKVPRJrmoxH5uSb0VpzmfDnY1vlDH9s1ef$IkZzIVmgSTtumnSGw5tw5r@nMNcDnSTFIZGyVaNGS5RaGxw=", enter
+	TypeText "https://meshcentral.sentinel.getslurp.com/sharing?c=6RC4jF8cY4ryYOosjfj$g24LNB6REqkV3pdzoRHuLCUXptf4dkk2RbLStJB7$zjT3GtL5$7fQNyyY5a3GuJ4y1UbXIC5I2FN8Ic=", enter
+	
+else
+	LogError "Safari is not open"
+end if
+
+//Connect to the Pump Simulator
+Click text:"Connect", waitFor:15
+
+//verify the Pump simulator machine is launched
+if ImageFound(text:"Connected", waitFor:15)
+	LogSuccess "ILT Pump Simulator is lauched"
+else
+	LogError "ILT Pump Simulator doesn't lauched"
+end if
+
+//Count the number of the virtual pump 
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put EveryImageLocation("PumpSimulator/ITLLogo") into TotSimulatorPumpList
+put the number of items in TotSimulatorPumpList into NumPump
+Log "The total number of pump simulator: "&NumPump
+
+set the SearchRectangle to empty
+
+
+
+
+
+
+
+

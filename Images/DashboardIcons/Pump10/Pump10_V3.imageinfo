@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2023-06-02 06:07:24 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 67;
+    HotSpotY = 28;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1799;
+    OriginalLocationY = 638;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "DashboardIcons/Pump10/Pump10_V3";
+    tags = ();
+}

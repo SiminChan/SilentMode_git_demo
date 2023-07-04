@@ -1,0 +1,45 @@
+{
+  "lastmodifieddate" : 1685695357.420203,
+  "testlocationdata" : [
+    {
+      "name" : "PumpSimulator\/SafariIcon\/SafariIconV3.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Tolerant of Background",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_45",
+        "HotSpot" : "[24,27]",
+        "CropRectangle" : "[0,0,0,0]"
+      },
+      "type" : 1,
+      "connectionserverid" : "eggplantsmini1",
+      "capturerect" : [
+        171,
+        1016,
+        45,
+        45
+      ]
+    }
+  ],
+  "createddate" : 1685695357.420203,
+  "lastfoundlocation" : [
+    171,
+    1016,
+    45,
+    45
+  ],
+  "originalcapturelocation" : [
+    171,
+    1016,
+    45,
+    45
+  ],
+  "lastfounddate" : 1685695358.9413781,
+  "name" : "PumpSimulator\/SafariIcon\/SafariIconV3"
+}

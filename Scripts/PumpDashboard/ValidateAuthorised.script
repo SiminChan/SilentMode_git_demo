@@ -1,0 +1,19 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+Click text:"Transaction", waitFor:15
+
+put ImageFound(text:"PENDING TRANSACTIONS", waitFor:15) into isPendingTransactionsFound
+put ImageFound(text:"REPRINT RECEIPT", waitFor:15) into IsReprintReceiptFound
+
+assert that isPendingTransactionsFound is true
+assert that IsReprintReceiptFound is true
+
+Set the SearchRectangle to empty
+
+

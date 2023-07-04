@@ -1,0 +1,29 @@
+﻿////////////////////////////////////////
+// Creator: Luwell
+// Date: 24-May-2023
+// Module: Pump Test
+//////////////////////////////////////
+//select pump 11
+Params PumpNumber
+
+//put 11 into PumpNumber //debug line
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+//Create property list to link the pic with Pump
+set myPump to {Pump1:"1", Pump2:"2", Pump3:"3", Pump4:"4", Pump5:"5", Pump6:"6", Pump7:"7", Pump8:"8", Pump9:"9", Pump10:"10", Pump11:"11", Pump12:"12"}
+
+put myPump.keyForValue(PumpNumber) into pumpPic
+
+//ToDo: fixed long delay
+set the imageSearchTime to 0.5
+Repeat until (imageFound(imageName:"DashboardIcons/"&pumpPic, waitFor: 0.5))
+	//FOR MOBILE OR TABLET
+	Set the SwipeSpeed to 40 //Use the SwipeSpeed global property to adjust the number of pixels dragged during the swipe action.
+	SwipeUp [RemoteScreenSize().x*1/10,RemoteScreenSize().y/2]
+	wait 3
+End Repeat
+
+Click imageName:"DashboardIcons/"&pumpPic, waitFor: 1
+
+Set the SearchRectangle to empty

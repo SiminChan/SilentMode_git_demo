@@ -1,0 +1,21 @@
+﻿{
+    CaptureDate = "2023-06-02 08:40:06 +0000";
+    CaptureHost = "pump";
+    CaptureScreenSize = (
+        "1920",
+        "1080");
+    CropRectangle = "3,1,41,39";
+    HasAlpha = 1;
+    HotSpotX = 21;
+    HotSpotY = 19;
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 172;
+    OriginalLocationY = 1018;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "PumpSimulator/SafariShieldIcon/SafariIconV5";
+    tags = ();
+}

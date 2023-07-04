@@ -1,0 +1,47 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 13-March-2023
+// Module: Open Cashier
+//////////////////////////////////////
+
+params Amount
+
+//Click Direct Input
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+Click text:"Direct Input", waitFor:3
+
+if amount is not a number then Throw "Error", "Input is not a number. Please check your amout input"
+//log amount
+
+//set the SearchRectangle to the area of pin pad
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("AmountCenter")
+
+//Create property list to link the pic with num, KeyForValue function to return the key corresponding to a particular value in a property list.
+set myNum to {Num0:"0", Num1:"1", Num2:"2", Num3:"3", Num4:"4", Num5:"5", Num6:"6", Num7:"7", Num8:"8", Num9:"9",C:"C"}
+
+//repeat to tap each number using image comparison
+put length(Amount) into totLenght
+repeat with n=1 up to totLenght
+	put Amount Mod 10 into reminder
+	put Amount Div 10 into Amount
+	//add the num into the ListNum
+	insert reminder into ListNum	
+end repeat
+
+//reverst the list
+put the reverse of ListNum into ListNum
+
+repeat with each amount in ListNum
+	//repeat with each amount in Amounts
+	put myNum.keyForValue(amount) into numPic
+	Tap imageName:"NumIcon/"&numPic, waitFor:2
+end repeat
+
+// press the proceed button 
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+Tap text:"Proceed", waitFor:3
+set the SearchRectangle to empty 
+
+return Amount
+
+

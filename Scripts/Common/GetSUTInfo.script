@@ -1,0 +1,71 @@
+﻿////////////////////////////////////////
+// Creator: Lim Ee Ric
+// Date: 17-April-2023
+// Module: GetSUTInfo. script. 
+//             Display IOS Version, 
+//             SUT Name, and RONPOS version. 
+//             Return: SUT Name
+//////////////////////////////////////
+
+PressHomeButton
+
+launchApp "com.apple.TestFlight"
+//Make sure Settings app is launched and loaded correctly from IOT Gateway
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+if ImageFound(text:"Apps", waitFor:15) 
+	log "TestFlight App launched"
+end if
+
+//Look and tap on "RONPOS" tab
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+Repeat until ImageFound(text:"RONPOS", waitFor:1)
+	set the swipeSpeed to 80
+	SwipeDown the RemoteScreenSize times .1
+End Repeat
+wait 0.1
+click FoundImageLocation()
+
+//Make sure RONPOS info is loaded
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+if ImageFound(text:"RONPOS", waitFor:15) 
+	put GetParamInfo("Previous Builds") into RONPOSVersion
+end if
+
+
+LaunchApp "Settings"
+
+//Make sure Settings app is launched and loaded correctly from IOT Gateway
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+if ImageFound(text:"Settings", waitFor:15) 
+	log "Settings launched"
+end if
+
+//Look and tap on "General" tab
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+Repeat until ImageFound(text:"General", waitFor:1)
+	set the swipeSpeed to 80
+	SwipeDown the RemoteScreenSize times .1
+End Repeat
+wait 0.1
+click FoundImageLocation()
+
+//Click on "About", and read Name, IpadOS Version
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+click text: "About"
+Set the SearchRectangle to empty
+
+put GetParamInfo("iPadOS Version") into IOSVersion
+put GetParamInfo("Name") into SUTName
+log "SUT Name: " & SUTName
+log "IOS Version: " & IOSVersion
+log "RONPOS Version: " & RONPOSVersion
+return SUTName
+
+function GetParamInfo InfoName
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("VerticalMiddle")
+	put ImageRectangle(text:InfoName, waitFor:15).TopRight into TL
+	put ImageRectangle(text:InfoName, waitFor:15).BottomRight + [2000, 30] into BR
+	put ReadText(TL, BR) split by " >" into readout
+	Set the SearchRectangle to empty
+	return item 1 of readout
+end GetParamInfo

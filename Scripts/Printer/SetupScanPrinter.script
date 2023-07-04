@@ -1,0 +1,75 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-May-2023
+// Module: Printer
+//////////////////////////////////////
+
+//params single or multiple printer (Action param)
+
+Params AP_PrinterAmount //Single or Multiple
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+put Single into AP_PrinterAmount
+
+Log EveryImageLocation("Printer/PrinterIcon")
+put EveryImageLocation("Printer/PrinterIcon") into PrinterList
+put the number of items of PrinterList into PrinterNumBef
+Log "Pritner Before Added: "& PrinterNumBef
+
+//testing code
+//set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+//put "Multiple" into AP_PrinterAmount
+//
+
+//Single add the printer under the manual button; //Multiple add all the printer after manual button
+if AP_PrinterAmount is "Single"
+	Click item 2 of PrinterList
+	wait 10
+	run "Printer/Add"
+else if AP_PrinterAmount is "Multiple"
+	
+	log PrinterList
+	delete item 1 of PrinterList
+	log PrinterList
+	repeat each item in PrinterList
+		Click it
+		wait 10
+		run "Printer/Add"
+	end repeat
+else
+	LogError "Params Input is incorrect"
+end if
+
+put EveryImageLocation("Printer/PrinterIcon") into PrinterList
+put the number of items in PrinterList into PrinterNumAft
+log "Printer After Added: "&PrinterNumAft
+
+put PrinterNumAft minus PrinterNumBef into PrinterDiff
+log "Printer Diff: "&PrinterDiff
+
+if AP_PrinterAmount is "Single"
+	
+	if PrinterDiff is not equal to 1
+		LogError "Printer is not added"
+	else
+		LogSuccess "Single printer is added"
+	end if
+	
+else if AP_PrinterAmount is "Multiple"//printerlist = (printBef):4 x 2 - 1 ;//printAft = 7 ; //printBef = 4
+
+	
+	put PrinterNumBef times 2 minus 1 into TotPrinter
+	log "Total Printer: "&TotPrinter
+	if TotPrinter is not equal to PrinterNumAft
+		LogError "Failed added all printer in"
+	else
+		LogSuccess "Multiple Pritnter is added"
+	end if
+else
+	LogError "Params Input is incorrect"
+end if
+
+set the SearchRectangle to empty
+
+//return SP_NumPrinter

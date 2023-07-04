@@ -1,0 +1,40 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 15-May-2023
+// Module: Printer
+//////////////////////////////////////
+
+Params KeyboardFlag
+
+put true into KeyboardFlag// need to take a var from Action Params
+
+WaitFor 15, text:"Setup Printer"
+
+if KeyboardFlag is true then Click imageName:"Printer/KeyboardIcon", waitFor:15
+
+Run "Printer/RemoveDustbin"
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+Click text:"Scan", waitFor:15
+
+if ImageFound(text:"Scanning", waitFor:15)
+	Log "Scanning for printer..."
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+	wait 120 //hard wait
+	//log EveryImageLocation("Printer/PrinterIcon")
+	put EveryImageLocation("Printer/PrinterIcon") into PrinterList
+	//put the number of list items of PrinterList into PrinterNum
+	put the number of items in PrinterList into PNum
+	log PNum
+	//put the number of list items of PrinterList into PNum
+	if PNum is more than 1
+		LogSuccess "Successfully detect available Printers"
+		
+	else
+		LogError "Scan Printer Function is not working/No printer is in this area"
+	end if
+end if
+
+set the SearchRectangle to empty
+

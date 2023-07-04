@@ -1,0 +1,20 @@
+﻿{
+    CaptureDate = "2023-05-22 04:15:42 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 30;
+    HotSpotY = 38;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 2609;
+    OriginalLocationY = 84;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchAlgorithm = "TextSmoothSquare";
+    SearchObjectName = "StaffIcon";
+    tags = ();
+}

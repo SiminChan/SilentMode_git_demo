@@ -1,0 +1,3 @@
+﻿set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+Click "FiveShiftRelatedButton/BreakButton"
+set the SearchRectangle to empty 

@@ -1,0 +1,14 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Simulator
+//////////////////////////////////////
+
+//shortcut key to close safari
+TypeText commandKey,controlKey,q
+
+//disconnect the pump simulator
+Disconnect "pump"
+
+//connect back to Pos
+Connect "POS"

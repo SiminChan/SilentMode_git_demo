@@ -1,0 +1,95 @@
+{
+  "lastmodifieddate" : 1685695219.6140251,
+  "testlocationdata" : [
+    {
+      "name" : "PumpSimulator\/SafariIcon\/SafariIcon.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Tolerant of Background",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_45",
+        "HotSpot" : "[27,27]",
+        "CropRectangle" : "[0,0,0,0]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.9",
+      "capturerect" : [
+        194,
+        1128,
+        53,
+        53
+      ]
+    },
+    {
+      "name" : "PumpSimulator\/SafariIcon\/SafariIcon.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_72",
+        "HotSpot" : "[23,21]",
+        "CropRectangle" : "[4,6,48,47]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.100.49",
+      "capturerect" : [
+        194,
+        1128,
+        44,
+        41
+      ]
+    },
+    {
+      "name" : "PumpSimulator\/SafariIcon\/SafariIcon.png",
+      "sutinfo" : {
+        "type" : "Unknown VNC"
+      },
+      "connectionname" : "pump",
+      "connectionportnum" : 5900,
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_69",
+        "HotSpot" : "[15,13]",
+        "CropRectangle" : "[12,14,40,39]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.36",
+      "capturerect" : [
+        194,
+        1128,
+        28,
+        25
+      ]
+    }
+  ],
+  "createddate" : 1681969958.2045569,
+  "lastfoundlocation" : [
+    180,
+    1027,
+    26,
+    23
+  ],
+  "originalcapturelocation" : [
+    194,
+    1128,
+    53,
+    53
+  ],
+  "lastfounddate" : 1685695072.0060301,
+  "name" : "PumpSimulator\/SafariIcn"
+}

@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2023-03-30 06:12:22 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 41;
+    HotSpotY = 52;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1882;
+    OriginalLocationY = 1300;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "PumpDashboard/Num9";
+    tags = ();
+}

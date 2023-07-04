@@ -1,0 +1,25 @@
+﻿////////////////////////////////////////
+// Creator: Farhan
+// Date: 29-May-2023
+// Module: Admin(Report)
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put ImageFound(imageName:"CalendarIcon", waitFor:10) into CalendarFound
+
+Assert that CalendarFound is true
+
+Click imageName:"CalendarIcon", waitFor:10
+
+put ImageFound(text:"Select Date Range", waitFor:10) into SelectDateFound
+Assert that SelectDateFound is true
+
+
+Set the SearchRectangle to empty
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+
+Set the SearchRectangle to empty
+

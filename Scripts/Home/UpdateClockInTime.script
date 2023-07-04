@@ -1,0 +1,10 @@
+﻿params isClockIn
+set the clockFormat to 24
+
+set temp to ""
+if isClockIn is true
+	set temp to the short time
+	log temp
+end if
+
+return temp

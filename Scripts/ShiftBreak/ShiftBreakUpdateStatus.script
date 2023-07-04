@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 6-April-2023
+// Module: Initial
+//////////////////////////////////////
+
+Params GP_IsShiftPause 
+
+set GP_IsShiftPause to true
+
+return GP_IsShiftPause

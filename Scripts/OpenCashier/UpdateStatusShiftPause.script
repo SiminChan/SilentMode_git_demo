@@ -1,0 +1,30 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-March-2023
+// Module: Open Cashier - Update Status Shift Pause
+//////////////////////////////////////
+
+//GP_IsShiftPause = ShiftPause
+
+params GP_IsShiftPause
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomRightQuadrant")
+set HomePageIsLoaded to true
+
+If ImageFound(imageName:"GoToDashboard", waitFor:5)
+	assert that HomePageIsLoaded is true
+	
+	// if return then it will change all the user property to false
+	// need to modify in the future
+	if GP_IsShiftPause = true
+		
+		return GP_IsShiftPause
+	else
+		set GP_IsShiftPause to False
+		return GP_IsShiftPause
+	end if
+Else
+	assert that HomePageisNotLoaded is false
+End If
+
+Set the SearchRectangle to empty

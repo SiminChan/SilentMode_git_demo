@@ -1,0 +1,21 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-March-2023
+// Module: Dashboard
+//////////////////////////////////////
+//select pump 11
+
+Params PumpNumber
+
+//put 11 into PumpNumber
+
+//Create property list to link the pic with Pump
+set myPump to {Pump1:"1", Pump2:"2", Pump3:"3", Pump4:"4", Pump5:"5", Pump6:"6", Pump7:"7", Pump8:"8", Pump9:"9", Pump10:"10", Pump11:"11", Pump12:"12"}
+
+put myPump.keyForValue(PumpNumber) into pumpPic
+Click imageName:"DashboardIcons/"&pumpPic, waitFor: 15
+
+//Click imageName:"DashboardIcons/Pump11", waitFor: 10
+
+Set the SearchRectangle to empty
+

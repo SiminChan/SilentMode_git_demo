@@ -1,0 +1,99 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 3-April-2023
+// Module: Dashboard
+//////////////////////////////////////
+
+//item displayed in transaction cart with correct pump number, prepay amount and fuel grade
+
+//input pump number , fuel grade & fuel price amount 
+
+Params PumpNumber, FuelPriceAmount, FuelGrade, FuelVolumeAmount, IsEnterFuelByVolumeAmount
+
+//put FS95 into FuelGrade
+
+//read the display fuel price
+//put 11 into PumpNumber
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+put ImageRectangle(text:"Pump "&PumpNumber, waitFor:15).topRight + [200, -70] into TL
+put ImageRectangle(text:"Pump "&PumpNumber, waitFor:15).bottomRight + [550, 80] into BR
+put ReadText([TL, BR], contrast:On, contrastColor:"AutoDetect", contrastTolerance:1) into Price
+//log Price
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+put ImageRectangle(text:"Pump "&PumpNumber, waitFor:15).topLeft + [-30, -70] into TL
+put ImageRectangle(text:"Pump "&PumpNumber, waitFor:15).topRight + [200,0] into BR
+put ReadText([TL,BR]) into FuelGradeAndLitre
+//log FuelGradeAndLitre
+
+split FuelGradeAndLitre by <character in "(. ">
+put the first item of FuelGradeAndLitre into ReadFuelGrade
+put the third item of FuelGradeAndLitre into ReadLitre
+
+//log FuelGrade
+
+//log FuelGradeAndLitre
+//log ReadFuelGrade
+//log ReadLitre
+
+//check the Fuel Grade is correct over here
+if FuelGrade = ReadFuelGrade
+	LogSuccess "Fuel grade display is same as the fuel grade selected from the pump dashboard"
+else
+	LogError "Fuel grade display is not same as the fuel grade selected from the pump dashboard"
+end if
+
+//check fuel price is display or not
+If Price is not empty
+	LogSuccess "Fuel is added into transaction"
+Else
+	LogError "Fuel is not added into transaction"
+End If
+
+if IsEnterFuelByVolumeAmount is true
+	If FuelVolumeAmount = ReadLitre
+		LogSuccess "Fuel amount display is same as the amount enter from the pump dashboard"
+	else
+		LogError "Fuel amount display is not same as the amount enter from the pump dashboard"
+	End If
+else
+	//put 15.00 into Price
+	put Price split by "." into Price
+	//Eggplant will ignore the 0 when you split the Price, so manually add back to it 
+	put the first item of Price into Ringgit
+	put the second item of Price into Cent
+	
+	//log FuelPriceAmount
+	log "Fuel Price Amount: "&FuelPriceAmount
+	
+	put length(Cent) into CentLength
+	log CentLength
+	if CentLength is greater than 1
+		put Cent into Cent
+	else if CentLength is equal to 1
+		put Cent&"0" into Cent
+		log Cent
+	else
+		put "00" into Cent
+		log Cent
+	end if
+	
+	put Ringgit&Cent into Price
+	log "Price: "&Price
+	
+	if FuelPriceAmount = Price
+		LogSuccess "Fuel price display is same as the amount enter from the pump dashboard"
+	else
+		LogError "Fuel price display is not same as the amount enter from the pump dashboard"
+	end if
+end if
+
+set the SearchRectangle to empty
+
+//check the amount from pump dashboard is same witht the price showing in fuel transaction cart
+// put ReadPrice split by "." into ReadPrice 
+
+
+
+

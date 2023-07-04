@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: farhan
+// Date: 23-May-2023
+// Module: EndOfDay
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+Click ImageLocation(text:"Issue End of Day") + [0,-100]
+
+Set the SearchRectangle to empty

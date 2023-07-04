@@ -1,0 +1,24 @@
+﻿//////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 26-April-2023
+// Module: Setting
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageFound(text:"Settings & Configuration", waitFor: 20) into IsSettingAndConfigurationFound
+Assert that IsSettingAndConfigurationFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("RightHalf")
+
+Click text:"Quit App", waitFor:15
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+if ImageFound(imageName:"MainPage/RONPOSIcon", waitFor:15)
+	LogSuccess "Able to quit app by clicking Quit App button"
+else
+	LogError "Not able to quit app by clicking Quit App button"
+end if
+
+Set the SearchRectangle to empty

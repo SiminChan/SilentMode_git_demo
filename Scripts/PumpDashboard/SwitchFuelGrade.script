@@ -1,0 +1,49 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Params SwitchFuelGrade, PumpNumber
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"PumpDashboard/SwitchFuelGradeIcon", waitFor:15
+
+set the SearchRectangle to empty
+
+Click text: SwitchFuelGrade, waitFor:15
+
+//read the fuel grade
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("HorizontalMiddle")
+if ImageFound(text:"Fuel Grade", waitFor:15)
+	put ImageRectangle(text:"Fuel Grade", waitFor:15).bottomLeft into TL
+	put ImageRectangle(text:"Fuel Grade", waitFor:15).bottomRight +[100, 100]into BR
+	put ReadText(TL, BR) into ReadFuelGrade
+else
+	LogError "Pump Tab is not found"
+end if
+
+if ReadFuelGrade = SwitchFuelGrade
+	LogSuccess "POS display new fuel grade."
+else
+	LogError "POS not able to display the new fuel grade"
+end if
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+//read the pos pump number
+put ImageRectangle(text:"Pump", waitFor:15).topRight into TL
+put ImageRectangle(text:"Pump", waitFor:15).bottomRight + [200, 0] into BR
+put ReadText(TL,BR) into ReadPump
+
+split ReadPump by <character in "•">
+put the first item of ReadPump into ReadPump
+
+if ReadPump = PumpNumber
+	LogSuccess "POS able to display pump number"
+else
+	LogError "POS not able to display pump number"
+end if
+
+set the SearchRectangle to empty

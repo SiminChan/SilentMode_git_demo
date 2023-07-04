@@ -1,0 +1,16 @@
+﻿//////////////////////////////////////
+// Creator: Farhan
+// Date: 11-May-2023
+// Module: Setting
+//////////////////////////////////////
+
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageFound(text:"Settings & Configuration", waitFor: 20) into IsSettingAndConfigurationFound
+Assert that IsSettingAndConfigurationFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+Click text:"Pump Visibility", waitFor:15
+
+Set the SearchRectangle to empty

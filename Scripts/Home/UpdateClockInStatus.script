@@ -1,0 +1,12 @@
+﻿params currentClockInStatus, isPinValid
+
+if isPinValid then
+	if currentClockInStatus is false
+		return true
+	else
+		return false
+	end if
+else
+	return currentClockInStatus
+end if
+

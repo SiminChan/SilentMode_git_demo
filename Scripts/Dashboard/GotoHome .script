@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////
+// Creator: Farhan
+// Date: 22-May-2023
+// Module: Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+
+Put ImageFound("StaffIcon") into isStafImageFound
+
+Assert that isStafImageFound is true
+
+Click ImageLocation("StaffIcon")
+
+Set the SearchRectangle to empty

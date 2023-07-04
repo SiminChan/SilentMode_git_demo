@@ -1,0 +1,22 @@
+﻿{
+    CaptureDate = "2023-04-28 07:54:02 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        "2732",
+        "2048");
+    HasAlpha = 1;
+    HotSpotX = 22;
+    HotSpotY = 38;
+    IgnoreColor = (
+        "#F4F5F7");
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 2606;
+    OriginalLocationY = 1517;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "Setup/DustbinIcon";
+    tags = ();
+}

@@ -1,0 +1,28 @@
+﻿//Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomLeftPanel")
+
+//Put imageRectangle(text:"Subtotal") into ItemsSubtotal
+//Set imageTop = top(ItemsSubtotal)
+//Set imageRight = right(ItemsSubtotal)
+//add [600,0,650,0] to ItemsSubtotal
+//Put ReadText(ItemsSubtotal) into SubtotalAmount
+
+//Put "2.01" into isSubtotalAmountFound
+
+//Assert that SubtotalAmount is isSubtotalAmountFound
+
+////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-May-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomLeftPanel")
+
+put ImageRectangle(text:"Subtotal", waitFor:15).topRight + [50, -15] into TL
+put ImageRectangle(text:"Subtotal", waitFor:15).bottomRight + [750, 15] into BR
+log "Total Item: "&ReadText(TL,BR)
+put ReadText(TL,BR) into SubtotalAmount
+
+Put "2.01" into isSubtotalAmountFound
+
+Assert that SubtotalAmount is isSubtotalAmountFound

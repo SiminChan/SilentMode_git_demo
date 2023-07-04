@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: Farhan
+// Date: 29-May-2023
+// Module: Admin(Report)
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+Click text:"Pay In", waitFor: 10
+
+set the SearchRectangle to empty

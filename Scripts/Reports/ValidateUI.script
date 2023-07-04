@@ -1,0 +1,33 @@
+﻿////////////////////////////////////////
+// Creator: Farhan
+// Date: 29-May-2023
+// Module: Admin(Report)
+//////////////////////////////////////
+
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+put ImageFound(text:"Safe Drop", waitFor:10) into SafeDropFound
+put ImageFound(text:"Pay In", waitFor:10) into PayInFound
+put ImageFound(text:"Pay Out", waitFor:10) into PayOutFound
+put ImageFound(text:"Till Closure", waitFor:10) into TillClosureFound
+
+put ImageFound(text:"Till Summary", waitFor:10) into TillSummaryFound
+put ImageFound(text:"Cancelled Cart", waitFor:10) into CancelledCartFound
+put ImageFound(text:"Pump Test", waitFor:10) into PumpTestFound
+put ImageFound(text:"Fuel Prices", waitFor:10) into FuelPriceFound
+put ImageFound(text:"Pump Meter Reading", waitFor:10) into PMRFound
+
+Assert that SafeDropFound is true
+Assert that PayInFound is true
+Assert that PayOutFound is true
+Assert that TillClosureFound is true
+
+Assert that TillSummaryFound is true
+Assert that CancelledCartFound is true
+Assert that PumpTestFound is true
+Assert that FuelPriceFound is true
+Assert that PMRFound is true
+
+
+Set the SearchRectangle to empty

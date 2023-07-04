@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+//click Load All Data
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+Click text:"Load All Data", waitFor:15
+set the SearchRectangle to empty
+
+//able to display Load All Data
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopRightQuadrant")
+put ImageFound(text:"Load All Data", contrast:"On", contrastColor:"AutoDetect", contrastTolerance:"45", waitFor:15) into IsLoadAllDataFound
+assert that IsLoadAllDataFound is true

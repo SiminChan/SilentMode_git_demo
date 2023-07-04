@@ -1,0 +1,54 @@
+{
+	"originalcapturelocation": [
+		1551,
+		1194,
+		145,
+		69
+	],
+	"lastmodifieddate": 1679476043.244,
+	"createddate": 1679475873.73,
+	"name": "Tab4",
+	"lastfounddate": 1679475968.165,
+	"ocrcapturestring": "Tab 3",
+	"lastfoundlocation": [
+		1551,
+		1194,
+		145,
+		69
+	],
+	"testlocationdata": [
+		{
+				"connectionportnum": 5908,
+				"deleted": true,
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[72,34]",
+					"Tolerance": "_45",
+					"Discrepancy": "_0",
+					"SearchType": "Tolerant of Background"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 15.7.1",
+					"version": "6.0",
+					"os_version": "13.0.1",
+					"os": "OSX",
+					"device": "iPad8,12",
+					"type": "iOS Gateway",
+					"device_type": "iPad Pro (12.9 inch) 4th Gen"
+				},
+				"name": "Item/Tab3/Tab3.png",
+				"connectionname": "pos a",
+				"type": 1,
+				"capturerect": [
+					1551,
+					1194,
+					145,
+					69
+				],
+				"connectionserverid": "192.168.0.227",
+				"capturedocrtext": "Tab 3"
+			}
+	]
+}

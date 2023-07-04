@@ -1,0 +1,108 @@
+{
+	"lastmodifieddate": 1682486450.4853001,
+	"lastfoundlocation": [
+		1524,
+		842,
+		76,
+		106
+	],
+	"originalcapturelocation": [
+		1492,
+		826,
+		140,
+		139
+	],
+	"createddate": 1682486359.61655,
+	"lastfounddate": 1684465015.904,
+	"testlocationdata": [
+		{
+				"connectionportnum": 5910,
+				"domelements": [
+					{
+							"elementLocation": "{{1005, 16}, {15, 45}}",
+							"visible": "true",
+							"y": "16",
+							"enabled": "true",
+							"elementName": "119PM",
+							"accessible": "true",
+							"type": "XCUIElementTypeStaticText",
+							"width": "15",
+							"elementScale": 2,
+							"label": "1:19 PM",
+							"x": "1005",
+							"height": "45",
+							"index": "0",
+							"elementType": "Checkpoint",
+							"name": "1:19 PM",
+							"value": "1:19 PM"
+						},
+					{
+							"elementLocation": "{{1005, 71}, {15, 69}}",
+							"visible": "true",
+							"y": "71",
+							"enabled": "true",
+							"elementName": "Wed26Apr",
+							"accessible": "true",
+							"type": "XCUIElementTypeStaticText",
+							"width": "15",
+							"elementScale": 2,
+							"label": "Wed 26 Apr",
+							"x": "1005",
+							"height": "69",
+							"index": "1",
+							"elementType": "Checkpoint",
+							"name": "Wed 26 Apr",
+							"value": "Wed 26 Apr"
+						},
+					{
+							"elementLocation": "{{1005, 1289}, {15, 34}}",
+							"visible": "true",
+							"y": "1289",
+							"enabled": "true",
+							"elementName": "100",
+							"accessible": "false",
+							"type": "XCUIElementTypeStaticText",
+							"width": "15",
+							"elementScale": 2,
+							"label": "100%",
+							"x": "1005",
+							"height": "34",
+							"index": "2",
+							"elementType": "Checkpoint",
+							"name": "100%",
+							"value": "100%"
+						}
+				],
+				"properties": {
+					"CropRectangle": "[0,0,0,0]",
+					"Rotate": 0,
+					"Scale": "    1",
+					"HotSpot": "[71,78]",
+					"Tolerance": "_45",
+					"Discrepancy": "_0",
+					"SearchType": "Tolerant of Background"
+				},
+				"sutinfo": {
+					"device_os_version": "iOS 16.4.1",
+					"version": "6.0",
+					"os_version": "13.3.1",
+					"os": "OSX",
+					"device": "iPad13,8",
+					"type": "iOS Gateway",
+					"device_type": ""
+				},
+				"name": "MainPage/RONPOSIcon.png",
+				"connectionname": "POS",
+				"type": 1,
+				"connectionserverid": "localhost",
+				"capturerect": [
+					1492,
+					826,
+					140,
+					139
+				],
+				"capturedocrtext": "□"
+			}
+	],
+	"name": "MainPage/RONPOSIcon"
+}

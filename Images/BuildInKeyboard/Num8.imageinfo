@@ -1,0 +1,20 @@
+﻿{
+    CaptureDate = "2023-05-31 01:51:13 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        "2732",
+        "2048");
+    HasAlpha = 1;
+    HotSpotX = 25;
+    HotSpotY = 29;
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 2225;
+    OriginalLocationY = 1344;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "BuildInKeyboard/8";
+    tags = ();
+}

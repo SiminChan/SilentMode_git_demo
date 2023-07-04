@@ -1,0 +1,11 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 17-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"PumpDashboard/AbortIcon", waitFor:15
+
+set the SearchRectangle to empty

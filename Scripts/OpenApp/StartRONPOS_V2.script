@@ -1,0 +1,74 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 4-April-2023
+// Module: Initial
+//////////////////////////////////////
+
+Params ProfileID
+
+//open application
+LaunchApp "RONPOS"
+
+//make sure it is in Cashier page
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+put ImageFound(text:"Cashier", waitFor:10) into IsCashierFound
+put ImageFound(text:"Attendant", waitFor:10) into IsAttendantFound
+
+Assert that  IsCashierFound is True
+Assert that IsAttendantFound is True
+
+//check is Shift Started
+Click text:"Cashier", waitFor:10
+put ImageFound(text:"Shift Started", waitFor:15) into IsShiftStartedFound
+
+
+if IsShiftStartedFound is True
+	Click text:"Close Cashier", waitFor:10
+	set the SearchRectangle to "Common/CustomRectangle".Screenpart("Middle")
+	
+	enterPin "9630"
+end if
+
+//click proceed to close cashier
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("BottomHalf")
+Click text:"Proceed", waitFor:10
+
+put "Common/ChoosePinProfile_V2".PinForUser("Auto User 2") into pins
+log pins
+
+
+
+
+//To handle enter pin 
+To Handle enterPin pins
+	if ImageFound(text:"Enter your PIN", waitFor:10)
+		repeat with n = 1 up to length(pins)
+			put pins Mod 10 into pin
+			put pins Div 10 into pins
+			insert pin into pinList
+		end repeat
+		//reverse the pinList
+		put the reverse of pinList into pinList
+		
+		log "Pin# is: "&pinList
+		split pins by ","
+		repeat with each pin in pinList
+			Click text:pin, waitFor:10
+			wait 1
+		end repeat
+	end if
+End enterPin
+
+
+
+
+
+
+
+//put ImageFound(text:"100 L", waitFor:15) into Is100LFound
+
+//Assert that Is5LFound is True
+//Click text:"Cashier", waitFor:5
+
+

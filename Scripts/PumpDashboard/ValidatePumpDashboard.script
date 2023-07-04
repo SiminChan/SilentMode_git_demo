@@ -1,0 +1,45 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 29-March-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+//verifty pump dashboard UI
+
+Params PumpNumber
+
+//put 11 into PumpNumber
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopHalf")
+
+//verify tiitle
+put ImageFound(text:"Pump", waitFor:15) into isPumpFound
+put ImageFound(text:"Transaction", waitFor:15) into IsTransactionFound
+
+//verify sleected pump number
+put ImageFound(text:"Pump "&PumpNumber, waitFor:15) into isPumpNumberFound
+
+//verify the fule grade *****CHECK FUEL GRADE  TODO**************************************
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("TopRightQuadrant")
+put ImageFound(text:"EU5", waitFor:15) into IsEU5Found
+put ImageFound(text:"FS95", waitFor:15) into IsFS95Found
+put ImageFound(text:"VP97", waitFor: 15) into IsVP97Found
+
+Set the SearchRectangle to "Common/CustomRectangle".Screenpart("LeftHalf")
+
+//verify the selected pump is green color //need to modify TODO*********************************************************
+put ImageFound(imageName:"PumpDashboard/Pump11Selected", waitFor:15) into IsSelectedPumpFound
+
+Assert that isPumpFound is True
+Assert that IsTransactionFound is True
+Assert that isPumpNumberFound is True
+Assert that IsEU5Found is True
+Assert that IsFS95Found is True
+Assert that IsVP97Found is True
+Assert that IsSelectedPumpFound is True
+
+Set the SearchRectangle to empty
+
+
+

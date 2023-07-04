@@ -1,0 +1,68 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Switch Pump
+//////////////////////////////////////
+
+//Pump 9, 10, 11 & 12 will be used in the eggplant automation testcases
+
+Params SwitchPumpNumber, FuelGrade
+
+//put 10 into SwitchPumpNumber
+//put "VP97" into FuelGrade
+
+//verify the pump is selected
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("PumpVisibilityRec")
+
+put ImageFound(text:"PUMP "&SwitchPumpNumber, waitFor:15) into IsSwithPumpClick
+assert that IsSwithPumpClick is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("RightHalf")
+put ImageRectangle(text:"FUEL GRADE", waitFor:15).bottomLeft into TL
+put ImageRectangle(text:"FUEL GRADE", waitFor:15).bottomRight +[500,1200 ]into BR
+//log ReadText(TL, BR)
+
+Set the SearchRectangle to [TL, BR]
+Click text:FuelGrade, waitFor:15
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+WaitFor 20, text:"Amount"
+
+//Read Pump Number
+put ImageRectangle(imageName:"SwitchPump/GreenPump", waitFor:15).topRight into TL
+put ImageRectangle(imageName:"SwitchPump/GreenPump", waitFor:15).bottomRight + [100, 0]into BR
+put ReadText(TL, BR) into SwitchedPump
+log "Pump Switched to: "&SwitchedPump
+
+//read fuel grade
+if FuelGrade is equal to VP97
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", contrast:"On", contrastColor:"#0F7434", contrastTolerance:"45", waitFor:15).topRight+[120,0] into TL
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", contrast:"On", contrastColor:"#0F7434", contrastTolerance:"45", waitFor:15).bottomRight + [220, 0]into BR
+else if FuelGrade is equal to EU5
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", contrast:"On", contrastColor:"#FFFFFF", contrastTolerance:"45", waitFor:15).topRight+[150,0] into TL
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", contrast:"On", contrastColor:"#FFFFFF", contrastTolerance:"45", waitFor:15).bottomRight + [220, 0]into BR
+else
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", waitFor:15).topRight+[120,0] into TL
+	put ImageRectangle(imageName:"SwitchPump/GreenPump", waitFor:15).bottomRight + [220, 0]into BR
+end if
+
+put ReadText(TL, BR) into SwitchedGrade
+log "Fuel Grade Switched to: "&SwitchedGrade
+
+put SwitchedPump&" "&SwitchedGrade into SwitchedPumpAndGrade
+log "Pump number & Fuel Grade: "&SwitchedPumpAndGrade
+
+If SwitchedPumpAndGrade = SwitchPumpNumber&" "&FuelGrade
+	LogSuccess "The Pump is switched to "&SwitchPumpNumber&" with Fuel Grade: "&FuelGrade
+else
+	LogError "Pump is not switch"
+End If
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+Click imageName:"SwitchPump/BackIcon", waitFor:20
+
+Set the SearchRectangle to empty
+
+
+

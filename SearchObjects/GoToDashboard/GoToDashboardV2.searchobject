@@ -1,0 +1,53 @@
+{
+  "lastmodifieddate" : 1679024390.5349998,
+  "ocrcapturestring" : "GO TO DASHBOARD",
+  "testlocationdata" : [
+    {
+      "name" : "GoToDashboard\/GoToDashboardV2.png",
+      "sutinfo" : {
+        "device_os_version" : "iOS 15.7.1",
+        "os" : "OSX",
+        "device" : "iPad8,12",
+        "os_version" : "13.0.1",
+        "version" : "6.0",
+        "type" : "iOS Gateway",
+        "device_type" : "iPad Pro (12.9 inch) 4th Gen"
+      },
+      "connectionname" : "GetSlurp - pos a",
+      "connectionportnum" : 5908,
+      "capturedocrtext" : "GO TO DASHBOARD",
+      "properties" : {
+        "Rotate" : 0,
+        "Scale" : "    1",
+        "SearchType" : "Smoothed for Text",
+        "Discrepancy" : "_0",
+        "Tolerance" : "_57",
+        "CropRectangle" : "[0,0,0,0]",
+        "HotSpot" : "[231,35]"
+      },
+      "type" : 1,
+      "connectionserverid" : "192.168.0.227",
+      "capturerect" : [
+        2142,
+        1883,
+        462,
+        71
+      ]
+    }
+  ],
+  "createddate" : 1679024390.5349998,
+  "lastfoundlocation" : [
+    2142,
+    1883,
+    462,
+    71
+  ],
+  "originalcapturelocation" : [
+    2142,
+    1883,
+    462,
+    71
+  ],
+  "lastfounddate" : 1681104403.439224,
+  "name" : "GoToDashboard\/GoToDashboardV2"
+}

@@ -1,0 +1,19 @@
+﻿{
+    CaptureDate = "2023-05-29 03:20:11 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        2732,
+        2048);
+    HasAlpha = 1;
+    HotSpotX = 32;
+    HotSpotY = 32;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 2581;
+    OriginalLocationY = 381;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "Printer/PrinterIcon2";
+    tags = ();
+}

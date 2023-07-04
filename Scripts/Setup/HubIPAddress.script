@@ -1,0 +1,23 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+//Click the Hub IP address
+ClickHubIPAddress
+
+to handle ClickHubIPAddress
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+	Click text:"Hub IP Address", waitFor:15
+	set the SearchRectangle to empty
+	
+	//able to dislay Setup IP Address
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+	put ImageFound(text:"Setup IP Address", waitFor:15) into IsSetupIPAddressFound
+	Assert that IsSetupIPAddressFound is true
+	
+end ClickHubIPAddress
+
+
+

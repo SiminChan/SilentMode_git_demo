@@ -1,0 +1,13 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 15-May-2023
+// Module: Settings
+//////////////////////////////////////
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("LeftHalf")
+
+Click text:"Printer", waitFor:15
+
+set the SearchRectangle to empty
+
+

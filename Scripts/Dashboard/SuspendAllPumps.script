@@ -1,0 +1,42 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 10-April-2023
+// Module: Pump Dashboard
+//////////////////////////////////////
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click text:"SUSPEND", waitFor:15
+
+// click proceed to suspend all pumps
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("Center")
+
+Click text:"Proceed", waitFor:15
+
+//log everyimagelocation
+
+if ImageFound(imageName:"DashboardIcons/SupendedIcon", waitFor:15)
+	Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+	//log EveryImageLocation("DashboardIcons/SupendedIcon")
+	put EveryImageLocation("DashboardIcons/SupendedIcon") into TotSupenedList
+	put the number of items in TotSupenedList into SupendedNum
+	log "Total Supended Icon: "&SupendedNum
+	if SupendedNum is equal 12
+		LogSuccess "All pumps are supended"
+	else
+		LogError "Not all pumps are supended"
+	end if
+else
+	LogError "Supend All Pumps Button is not working"
+end if
+
+Set the SearchRectangle to empty
+
+
+//put all the item in a list
+//count the image in the list
+//if suspend icon not equal to 12 then log error
+
+
+
+

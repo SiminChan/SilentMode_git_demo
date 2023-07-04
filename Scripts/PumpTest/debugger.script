@@ -1,0 +1,44 @@
+﻿//RotateRight
+//RotateLeft
+
+//TC: Pump Test Button
+Run "PumpTest/ClickPumpTest"
+
+//TC: Permission
+//TC: Enter correct pin
+//Run "Common\Pin\EnterPin_V3", 0222
+Run "Common/Pin/EnterPin_V3", "0222" //params 
+//incorrect
+//invalid
+
+//TC: Pump test page
+run "PumpTest/CheckBanner" //DONE
+
+//TC: Pump tab
+Run "PumpDashboard/PumpTab" //DONE 
+
+//TC:Transaction tab
+Run "PumpTest/TransactionTab"
+
+//Select Pump
+Run "PumpTest/SelectPumpToTest" "11"
+
+//Check Fuel Price Keys
+Run "PumpDashboard/EnterFuelPriceAmount" "5000" //DONE 
+
+//Check Fuel Volume Keys
+Run "PumpDashboard\EnterFuelVolumeAmount" "5000"
+
+//Check Keypad
+Run "PumpDashboard\KeypadEnterFuelPriceAmount" "5000"
+
+//TC:Fuel Grade
+Run "PumpDashboard\SelectFuelGrade" "FS95"
+
+
+
+
+
+
+
+

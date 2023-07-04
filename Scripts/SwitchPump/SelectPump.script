@@ -1,0 +1,24 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Switch Pump
+//////////////////////////////////////
+
+Params SwitchPumpNumber
+
+//put 10 into SwitchPumpNumber
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put ImageFound(text:"Switch Pump", waitFor:15) into IsSwitchPumpFound 
+assert that IsSwitchPumpFound is true
+
+Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("PumpVisibilityRec")
+
+Click text:SwitchPumpNumber, waitFor:20
+
+Set the SearchRectangle to empty
+
+return SwitchPumpNumber
+
+

@@ -1,0 +1,89 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 12-April-2023
+// Module: Pump Simulator
+//////////////////////////////////////
+
+//take pump number from GP
+Params PumpNumber, FuelGrade, FuelAmount
+
+//ClickHose 11,"FS95"
+ClickHose PumpNumber, FuelGrade
+
+to handle ClickHose with pumpNumber, FuelGrade
+	set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+	
+	put EveryImageLocation("PumpSimulator/ITLLogo") into TotSimulatorPumpList
+	pull item PumpNumber of TotSimulatorPumpList into SpecificPump
+	
+	wait 2
+	
+	log SpecificPump
+	//make sure nothing is appear on the hose button
+	put SpecificPump + [-55,-320] into TL
+	put SpecificPump + [0,-250] into BR
+	put ImageLocation(text:"RM", SearchRectangle:[TL,BR]) into RM
+	Click RM +[20,0]
+	
+	//click the hose number 
+	put SpecificPump + [-55, -250] into TL
+	put SpecificPump + [0, -90] into BR
+	log ReadText(TL,BR)
+	
+	// to find 95 97 or eu5
+	if FuelGrade = EU5
+		Click text:"Hose 1", waitFor:15, SearchRectangle:[TL,BR], ignoreSpaces:yes
+	else if FuelGrade = FS95
+		Click text:"Hose 2", waitFor:15, SearchRectangle:[TL,BR],ignoreSpaces:yes
+	else if FuelGrade = VP97
+		Click text:"Hose 3", waitFor:15, SearchRectangle:[TL,BR], ignoreSpaces:yes
+	else
+		LogError "Fuel Grade params input invalid"
+	end if
+	
+	MoveTo text:"Connected", waitFor:15
+	
+	Click text:"Disconnect", waitFor:15
+	
+end ClickHose
+
+
+
+
+
+
+
+
+
+
+
+
+
+//put the hose back to the pump
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopHalf")
+
+put EveryImageLocation("PumpSimulator/ITLLogo") into TotSimulatorPumpList
+
+//MAKE A AREA FOR IT TO SELECT THE PUMP 
+pull item 11 of TotSimulatorPumpList into SpecificPump
+log SpecificPump
+
+put SpecificPump + [-55, -400] into TL
+put SpecificPump + [50, -200] into BR
+log ReadText(TL,BR)
+
+
+set the SearchRectangle to empty
+
+
+//put EveryImageLocation("DashboardIcons/SupendedIcon") into TotSupenedList
+//put the number of items in TotSupenedList into SupendedNum
+//log "Total Supended Icon: "&SupendedNum
+
+
+
+//Start Pump -> check it is prepay or postpay in GP
+
+
+//Refuel

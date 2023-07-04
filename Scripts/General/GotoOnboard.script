@@ -1,0 +1,23 @@
+﻿////////////////////////////////////////
+// Creator: Chan Si Min
+// Date: 27-April-2023
+// Module: Onboarding
+//////////////////////////////////////
+
+set the mouseClickDelay to 5.5 // 
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+Click imageName:"MainPage/SettingIcon", waitFor:15
+
+set the SearchRectangle to "Common/CustomRectangle".ScreenPart("TopLeftQuadrant")
+
+put ImageFound(text:"Onboarding", waitFor:15) into IsOnboardingFound
+
+Assert that IsOnboardingFound is true
+
+set the mouseClickDelay to .5
+
+set the SearchRectangle to empty
+
+

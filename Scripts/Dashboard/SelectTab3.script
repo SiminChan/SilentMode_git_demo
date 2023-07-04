@@ -1,0 +1,9 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+//Click ImageName:"Item/Tab3"
+
+Click text:"Tab 3", waitFor:15
+
+Set the SearchRectangle to empty
+
+

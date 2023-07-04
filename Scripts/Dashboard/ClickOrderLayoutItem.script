@@ -1,0 +1,14 @@
+﻿Set the SearchRectangle to "Common/CustomRectangle".ScreenPart("BottomHalf")
+
+if ImageFound(text:"UHT 200ml", waitFor:25)
+	Click text:"UHT 200ml", waitFor:15
+else
+	LogError "UHT 200ml not found"
+	
+end if
+
+//Click ImageName:"Item/FirstMiloInTab3"
+
+
+
+

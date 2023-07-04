@@ -1,0 +1,24 @@
+﻿{
+    CaptureDate = "2023-04-28 05:17:49 +0000";
+    CaptureHost = "POS";
+    CaptureScreenSize = (
+        "2732",
+        "2048");
+    HasAlpha = 1;
+    HotSpotX = 108;
+    HotSpotY = 36;
+    IgnoreColor = (
+        "#FFFFFF");
+    IgnoreColorTolerance = (
+        20);
+    ImageDescription = <>;
+    LastKnownLocationX = 0;
+    LastKnownLocationY = 0;
+    OriginalLocationX = 1780;
+    OriginalLocationY = 584;
+    Precise = 0;
+    Pulsing = 0;
+    Scale = 1;
+    SearchObjectName = "Setup/100%Image";
+    tags = ();
+}
